@@ -11,26 +11,26 @@ interface BundleCardProps {
 
 export const BundleCard = ({ title, superCredits, medals, samples, price }: BundleCardProps) => {
   return (
-    <Card className="cyber-border bg-card/90 backdrop-blur-strong p-6 hover:glow-yellow transition-all duration-300 text-center">
-      <h3 className="text-xl font-bold text-primary mb-4 text-glow">
+    <Card className="cyber-border backdrop-blur-strong p-4 hover:glow-yellow transition-all duration-300 text-center group">
+      <h3 className="text-lg font-bold text-primary mb-3 text-glow">
         {title}
       </h3>
-      <div className="space-y-2 mb-6">
-        <div className="text-foreground">
+      <div className="space-y-1 mb-4 text-sm">
+        <div className="text-foreground/90">
           <span className="text-accent font-semibold">{superCredits}</span> SC
         </div>
-        <div className="text-foreground">
+        <div className="text-foreground/90">
           <span className="text-accent font-semibold">{medals}</span> Medals
         </div>
-        <div className="text-foreground">
+        <div className="text-foreground/90">
           <span className="text-accent font-semibold">{samples}</span> Samples
         </div>
       </div>
-      <div className="text-3xl font-bold text-primary mb-4 text-glow">
+      <div className="text-2xl font-bold price-highlight mb-3">
         {price}
       </div>
-      <Button className="w-full gradient-primary hover:scale-105 transition-transform font-bold">
-        Purchase Bundle
+      <Button size="sm" className="w-full gradient-primary hover:scale-105 transition-transform font-bold text-xs">
+        Purchase
       </Button>
     </Card>
   );

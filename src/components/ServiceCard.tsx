@@ -14,20 +14,20 @@ interface ServiceCardProps {
 
 export const ServiceCard = ({ title, items, note }: ServiceCardProps) => {
   return (
-    <Card className="cyber-border bg-card/80 backdrop-blur-strong p-6 hover:glow-yellow transition-all duration-300">
-      <h3 className="text-2xl font-bold text-primary text-center mb-6 text-glow">
+    <Card className="cyber-border backdrop-blur-strong p-4 hover:glow-yellow transition-all duration-300 group">
+      <h3 className="text-lg font-bold text-primary text-center mb-3 text-glow">
         {title}
       </h3>
-      <div className="space-y-4">
+      <div className="space-y-2">
         {items.map((item, index) => (
-          <div key={index} className="flex justify-between items-center border-b border-border/30 pb-2">
-            <span className="text-foreground font-medium">{item.amount}</span>
-            <span className="text-primary font-bold text-lg">{item.price}</span>
+          <div key={index} className="flex justify-between items-center text-sm">
+            <span className="text-foreground/90">{item.amount}</span>
+            <span className="price-highlight font-bold">{item.price}</span>
           </div>
         ))}
       </div>
       {note && (
-        <p className="text-sm text-muted-foreground mt-4 text-center italic">
+        <p className="text-xs text-muted-foreground mt-3 text-center italic leading-tight">
           {note}
         </p>
       )}

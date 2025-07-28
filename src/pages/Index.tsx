@@ -31,61 +31,53 @@ const Index = () => {
     <div className="min-h-screen bg-background relative overflow-hidden">
       {/* Background Image */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
         style={{ backgroundImage: `url(${battlefieldImage})` }}
       />
       
       {/* Overlay for better text readability */}
-      <div className="absolute inset-0 bg-background/70" />
+      <div className="absolute inset-0 bg-background/60" />
       
       {/* Content */}
       <div className="relative z-10">
-        {/* Hero Section */}
-        <section className="py-20 text-center">
+        {/* Compact Hero Section */}
+        <section className="py-12 text-center">
           <div className="container mx-auto px-4">
-            <h1 className="text-6xl font-bold text-primary mb-8 text-glow">
-              HELLDIVERS II BOOSTING SERVICE
+            <h1 className="text-4xl md:text-5xl font-bold text-primary mb-6 text-glow">
+              HELLDIVERS II BOOSTING
             </h1>
             
-            <div className="flex items-center justify-center space-x-8 mb-8">
-              <div className="text-4xl font-bold text-primary text-glow">FAST</div>
-              <img src={skullIcon} alt="Elite Service" className="w-24 h-24" />
-              <div className="text-4xl font-bold text-primary text-glow">SAFE</div>
+            <div className="flex items-center justify-center space-x-6 mb-8">
+              <div className="text-2xl md:text-3xl font-bold text-primary text-glow">FAST</div>
+              <img src={skullIcon} alt="Elite Service" className="w-16 h-16 float" />
+              <div className="text-2xl md:text-3xl font-bold text-primary text-glow">SAFE</div>
             </div>
           </div>
         </section>
 
-        {/* Service Pricing Cards */}
-        <section className="py-16">
+        {/* Compact Service Pricing & Custom Orders */}
+        <section className="py-8">
           <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 mb-8">
               <ServiceCard title="MEDALS" items={medalsData} />
               <ServiceCard title="SAMPLES" items={samplesData} />
               <ServiceCard 
                 title="SUPER CREDITS" 
                 items={superCreditsData} 
-                note="Extra Super Credits will be given at no extra cost"
+                note="Extra SC given free"
               />
-            </div>
-          </div>
-        </section>
-
-        {/* Custom Orders */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-md mx-auto mb-16">
               <CustomOrderCard />
             </div>
           </div>
         </section>
 
-        {/* Bundles Section */}
-        <section className="py-16">
+        {/* Compact Bundles Section */}
+        <section className="py-8">
           <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-bold text-primary text-center mb-12 text-glow">
+            <h2 className="text-2xl md:text-3xl font-bold text-primary text-center mb-6 text-glow">
               BUNDLES
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="bundle-grid max-w-4xl mx-auto">
               <BundleCard
                 title="SCOUT"
                 superCredits="500"
@@ -118,10 +110,10 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Footer Call to Action */}
-        <section className="py-16 text-center">
+        {/* Compact Footer Call to Action */}
+        <section className="py-8 text-center">
           <div className="container mx-auto px-4">
-            <Button variant="cyber" size="lg" className="text-xl px-12 py-4">
+            <Button variant="cyber" size="lg" className="gradient-primary text-lg px-8 py-3 glow-yellow">
               GET STARTED NOW
             </Button>
           </div>
