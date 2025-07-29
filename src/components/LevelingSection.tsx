@@ -23,10 +23,10 @@ export const LevelingSection = () => {
   }, []);
 
   const levelingPackages = [
-    { amount: "1-10 Levels", price: "$1.00" },
     { amount: "1-25 Levels", price: "$2.00" },
     { amount: "1-50 Levels", price: "$3.00" },
-    { amount: "1-75 Levels", price: "$4.00" }
+    { amount: "1-75 Levels", price: "$4.00" },
+    { amount: "Custom Range", price: "Quote" }
   ];
 
   const advancedLeveling = [
@@ -37,10 +37,10 @@ export const LevelingSection = () => {
   ];
 
   const expressLeveling = [
-    { amount: "Express 1-50", price: "$4.50" },
-    { amount: "Express 51-100", price: "$8.75" },
-    { amount: "Express 101-150", price: "$12.50" },
-    { amount: "24h Max Level", price: "$18.75" }
+    { amount: "Express 1-50", price: "$5.00" },
+    { amount: "Express 51-100", price: "$10.00" },
+    { amount: "Express 101-150", price: "$20.00" },
+    { amount: "Custom Range", price: "Quote" }
   ];
 
   return (
