@@ -55,7 +55,7 @@ export const PricingSection = () => {
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary mb-4 md:mb-6 text-glow">
-            PRICING & SERVICES
+            CURRENCY SERVICES
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Choose from our competitive rates or create a custom order for your specific needs

@@ -23,24 +23,24 @@ export const LevelingSection = () => {
   }, []);
 
   const levelingPackages = [
-    { amount: "1-10 Levels", price: "$2" },
-    { amount: "1-25 Levels", price: "$5" },
-    { amount: "1-50 Levels", price: "$10" },
-    { amount: "1-75 Levels", price: "$15" }
+    { amount: "1-10 Levels", price: "$0.50" },
+    { amount: "1-25 Levels", price: "$1.25" },
+    { amount: "1-50 Levels", price: "$2.50" },
+    { amount: "1-75 Levels", price: "$3.75" }
   ];
 
   const advancedLeveling = [
-    { amount: "76-100 Levels", price: "$20" },
-    { amount: "101-125 Levels", price: "$25" },
-    { amount: "126-150 Levels", price: "$30" },
-    { amount: "Custom Range", price: "Contact" }
+    { amount: "76-100 Levels", price: "$5.00" },
+    { amount: "101-125 Levels", price: "$6.25" },
+    { amount: "126-150 Levels", price: "$7.50" },
+    { amount: "Custom Range", price: "Quote" }
   ];
 
   const expressLeveling = [
-    { amount: "Express 1-50", price: "$18" },
-    { amount: "Express 51-100", price: "$35" },
-    { amount: "Express 101-150", price: "$50" },
-    { amount: "24h Max Level", price: "$75" }
+    { amount: "Express 1-50", price: "$4.50" },
+    { amount: "Express 51-100", price: "$8.75" },
+    { amount: "Express 101-150", price: "$12.50" },
+    { amount: "24h Max Level", price: "$18.75" }
   ];
 
   return (
@@ -91,10 +91,10 @@ export const LevelingSection = () => {
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           <p className="text-sm text-muted-foreground mb-4">
-            All leveling services include legitimate gameplay, no cheats or exploits
+            Professional automation tools ensure fast and efficient progression
           </p>
           <p className="text-xs text-muted-foreground">
-            * Custom level ranges available upon request - Contact us for personalized pricing
+            * All services are completed with advanced automation techniques for optimal efficiency
           </p>
         </div>
       </div>

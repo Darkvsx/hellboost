@@ -29,7 +29,7 @@ export const HeroSection = () => {
           </h1>
           
           <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8 md:mb-12 max-w-3xl mx-auto leading-relaxed">
-            Elite boosting services for democracy's finest soldiers. Fast, safe, and reliable progression.
+            Professional game progression services. Fast, secure, and reliable advancement solutions.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 md:mb-16">
@@ -58,16 +58,16 @@ export const HeroSection = () => {
           <div className="cyber-border backdrop-blur-strong p-6 md:p-8 rounded-lg hover:glow-yellow transition-all duration-500 group hover:scale-105">
             <div className="flex flex-col items-center text-center">
               <Zap className="w-12 h-12 md:w-16 md:h-16 text-primary mb-4 group-hover:scale-110 transition-transform duration-300" />
-              <h3 className="text-xl md:text-2xl font-bold text-primary mb-2 text-glow">LIGHTNING FAST</h3>
-              <p className="text-muted-foreground leading-relaxed">Orders completed within hours, not days</p>
+              <h3 className="text-xl md:text-2xl font-bold text-primary mb-2 text-glow">RAPID DELIVERY</h3>
+              <p className="text-muted-foreground leading-relaxed">Orders completed efficiently within hours</p>
             </div>
           </div>
           
           <div className="cyber-border backdrop-blur-strong p-6 md:p-8 rounded-lg hover:glow-yellow transition-all duration-500 group hover:scale-105">
             <div className="flex flex-col items-center text-center">
               <img src={skullIcon} alt="Elite Service" className="w-12 h-12 md:w-16 md:h-16 mb-4 float group-hover:scale-110 transition-transform duration-300" />
-              <h3 className="text-xl md:text-2xl font-bold text-primary mb-2 text-glow">ELITE SERVICE</h3>
-              <p className="text-muted-foreground leading-relaxed">Professional boosters with proven results</p>
+              <h3 className="text-xl md:text-2xl font-bold text-primary mb-2 text-glow">PROFESSIONAL SERVICE</h3>
+              <p className="text-muted-foreground leading-relaxed">Experienced team with consistent results</p>
             </div>
           </div>
           

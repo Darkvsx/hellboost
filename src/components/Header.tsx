@@ -42,7 +42,13 @@ export const Header = () => {
               onClick={() => scrollToSection('pricing')}
               className="text-foreground hover:text-primary transition-colors font-medium"
             >
-              Pricing
+              Currency Services
+            </button>
+            <button 
+              onClick={() => scrollToSection('leveling')}
+              className="text-foreground hover:text-primary transition-colors font-medium"
+            >
+              Leveling
             </button>
             <button 
               onClick={() => scrollToSection('bundles')}
@@ -90,7 +96,13 @@ export const Header = () => {
                 onClick={() => scrollToSection('pricing')}
                 className="text-left text-foreground hover:text-primary transition-colors font-medium py-2"
               >
-                Pricing
+                Currency Services
+              </button>
+              <button 
+                onClick={() => scrollToSection('leveling')}
+                className="text-left text-foreground hover:text-primary transition-colors font-medium py-2"
+              >
+                Leveling
               </button>
               <button 
                 onClick={() => scrollToSection('bundles')}
