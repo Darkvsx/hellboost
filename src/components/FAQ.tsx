@@ -1,5 +1,4 @@
 import { Card } from "@/components/ui/card";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useEffect, useRef, useState } from "react";
 import { Shield, HelpCircle, CreditCard, ShoppingCart, DollarSign } from "lucide-react";
 
@@ -30,11 +29,11 @@ export const FAQ = () => {
       icon: Shield,
       question: "Is This Safe?",
       answer: (
-        <div className="space-y-3">
-          <p className="text-muted-foreground">This service is about 75% safe, 25% MAYBE?</p>
-          <div className="space-y-2">
-            <p className="text-foreground font-medium">As of writing this, there have been ZERO reports of any punishments for clients or boosters.</p>
-            <p className="text-foreground font-medium">No bans, no wipe — nothing.</p>
+        <div className="space-y-4">
+          <p className="text-lg font-medium text-foreground">This service is about 75% safe, 25% MAYBE?</p>
+          <div className="bg-muted/50 rounded-lg p-4 space-y-3">
+            <p className="text-foreground font-medium">✅ Zero reports of punishments for clients or boosters</p>
+            <p className="text-foreground font-medium">✅ No bans, no wipes — nothing</p>
           </div>
           <p className="text-muted-foreground">While no method is 100% risk-free, results so far speak for themselves.</p>
         </div>
@@ -45,12 +44,14 @@ export const FAQ = () => {
       icon: HelpCircle,
       question: "How Does This Work?",
       answer: (
-        <div className="space-y-3">
-          <ol className="list-decimal list-inside space-y-2 text-foreground">
-            <li>Add me on Helldivers 2.</li>
-            <li>Join my session.</li>
-          </ol>
-          <p className="text-muted-foreground">That's it. No password sharing, no shady steps. Just drop in and play.</p>
+        <div className="space-y-4">
+          <div className="bg-primary/5 rounded-lg p-4">
+            <ol className="list-decimal list-inside space-y-3 text-foreground">
+              <li className="text-lg">Add me on Helldivers 2</li>
+              <li className="text-lg">Join my session</li>
+            </ol>
+          </div>
+          <p className="text-muted-foreground text-lg">That's it. No password sharing, no shady steps. Just drop in and play.</p>
         </div>
       )
     },
@@ -59,9 +60,11 @@ export const FAQ = () => {
       icon: CreditCard,
       question: "What Payment Methods Do You Accept?",
       answer: (
-        <div className="space-y-3">
-          <p className="text-foreground font-medium">PayPal only (for now).</p>
-          <p className="text-muted-foreground">Still working on more options that don't take huge fees so I can keep prices low and fair.</p>
+        <div className="space-y-4">
+          <p className="text-foreground font-medium text-lg">PayPal only (for now)</p>
+          <div className="bg-accent/10 rounded-lg p-4">
+            <p className="text-muted-foreground">Still working on more options that don't take huge fees so I can keep prices low and fair.</p>
+          </div>
         </div>
       )
     },
@@ -70,12 +73,14 @@ export const FAQ = () => {
       icon: ShoppingCart,
       question: "How Do I Purchase?",
       answer: (
-        <div className="space-y-3">
-          <ol className="list-decimal list-inside space-y-2 text-foreground">
-            <li>Open a ticket in Order channel</li>
-            <li>Specify if you're buying a pre-made pack or would like a custom order</li>
-            <li>After confirming that everything is fine with you, we'll proceed to payment & fulfilling your order</li>
-          </ol>
+        <div className="space-y-4">
+          <div className="bg-secondary/50 rounded-lg p-4">
+            <ol className="list-decimal list-inside space-y-3 text-foreground">
+              <li className="text-lg">Open a ticket in Order channel</li>
+              <li className="text-lg">Specify if you're buying a pre-made pack or would like a custom order</li>
+              <li className="text-lg">After confirming everything is fine with you, we'll proceed to payment & fulfilling your order</li>
+            </ol>
+          </div>
         </div>
       )
     },
@@ -84,10 +89,12 @@ export const FAQ = () => {
       icon: DollarSign,
       question: "Why Are Your Prices Lower Than Others?",
       answer: (
-        <div className="space-y-3">
-          <p className="text-muted-foreground">Honestly? They should be.</p>
-          <p className="text-foreground">I don't believe simple services should cost a fortune.</p>
-          <p className="text-foreground">I respect your time and money — so I keep prices competitive and fair.</p>
+        <div className="space-y-4">
+          <p className="text-muted-foreground text-lg">Honestly? They should be.</p>
+          <div className="space-y-3">
+            <p className="text-foreground text-lg">💰 I don't believe simple services should cost a fortune</p>
+            <p className="text-foreground text-lg">🤝 I respect your time and money — so I keep prices competitive and fair</p>
+          </div>
           <p className="text-muted-foreground">Boosting in Helldivers 2 shouldn't break the bank.</p>
         </div>
       )
@@ -98,57 +105,54 @@ export const FAQ = () => {
     <section 
       id="faq" 
       ref={sectionRef}
-      className="py-16 md:py-24 bg-gradient-to-b from-background via-card/10 to-background"
+      className="py-16 md:py-24 bg-gradient-to-b from-background to-card/20"
     >
-      <div className="container mx-auto px-4">
-        <div className={`text-center mb-12 md:mb-16 transition-all duration-1000 ${
+      <div className="container mx-auto px-4 content-width">
+        <div className={`text-center mb-12 transition-all duration-800 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary mb-4 md:mb-6 text-glow">
-            FREQUENTLY ASKED QUESTIONS
+          <h2 className="heading-primary text-center mb-4">
+            Frequently Asked Questions
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Get answers to the most common questions about our services
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Get clear answers to the most common questions about our services
           </p>
         </div>
         
-        <div className={`max-w-4xl mx-auto transition-all duration-1000 delay-300 ${
+        <div className={`max-w-4xl mx-auto space-y-6 transition-all duration-800 delay-200 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
-          <Card className="cyber-border backdrop-blur-strong p-6 md:p-8">
-            <Accordion type="single" collapsible className="space-y-4">
-              {faqData.map((faq, index) => {
-                const IconComponent = faq.icon;
-                return (
-                  <AccordionItem 
-                    key={faq.id} 
-                    value={faq.id}
-                    className="border-border/50"
-                  >
-                    <AccordionTrigger 
-                      className="text-left hover:text-primary transition-colors py-6 text-lg md:text-xl font-semibold"
-                    >
-                      <div className="flex items-center gap-3">
-                        <IconComponent className="w-5 h-5 md:w-6 md:h-6 text-primary flex-shrink-0" />
-                        <span>{faq.question}</span>
-                      </div>
-                    </AccordionTrigger>
-                    <AccordionContent className="pb-6 pt-2 text-base md:text-lg">
+          {faqData.map((faq, index) => {
+            const IconComponent = faq.icon;
+            return (
+              <Card 
+                key={faq.id} 
+                className="clean-card"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <IconComponent className="w-6 h-6 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="heading-secondary mb-4">{faq.question}</h3>
+                    <div className="prose prose-invert max-w-none">
                       {faq.answer}
-                    </AccordionContent>
-                  </AccordionItem>
-                );
-              })}
-            </Accordion>
-          </Card>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            );
+          })}
         </div>
         
-        <div className={`text-center mt-8 md:mt-12 transition-all duration-1000 delay-500 ${
+        <div className={`text-center mt-12 transition-all duration-800 delay-500 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
-          <p className="text-sm text-muted-foreground">
-            Still have questions? Join our Discord community for real-time support!
-          </p>
+          <div className="bg-card border border-border rounded-lg p-6 max-w-2xl mx-auto">
+            <p className="text-foreground font-medium mb-2">Still have questions?</p>
+            <p className="text-muted-foreground">Join our Discord community for real-time support and updates!</p>
+          </div>
         </div>
       </div>
     </section>

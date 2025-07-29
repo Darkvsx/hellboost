@@ -16,78 +16,76 @@ export const HeroSection = () => {
   };
 
   return (
-    <section id="hero" className="pt-20 md:pt-28 pb-12 md:pb-20 text-center relative min-h-screen flex items-center">
-      <div className="container mx-auto px-4 w-full">
+    <section id="hero" className="pt-20 md:pt-28 pb-16 min-h-screen flex items-center">
+      <div className="container mx-auto px-4 content-width">
         {/* Main Hero Content */}
-        <div className={`max-w-5xl mx-auto mb-12 md:mb-16 transition-all duration-1000 ${
+        <div className={`text-center mb-16 transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-primary mb-4 md:mb-6 text-glow leading-tight">
-            HELLDIVERS II
-            <br />
-            <span className="price-highlight inline-block animate-pulse">BOOSTING</span>
-          </h1>
+          <div className="flex items-center justify-center mb-6">
+            <img src={skullIcon} alt="Helldivers Boost" className="w-16 h-16 mr-4 animate-gentle-pulse" />
+            <h1 className="heading-primary">
+              HELLDIVERS II
+              <br />
+              <span className="text-highlight">BOOSTING</span>
+            </h1>
+          </div>
           
-          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8 md:mb-12 max-w-3xl mx-auto leading-relaxed">
-            Professional game progression services. Fast, secure, and reliable advancement solutions.
+          <p className="text-xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed text-balance">
+            Professional game progression services with fast delivery, secure methods, and competitive pricing
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 md:mb-16">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
             <Button 
               size="lg" 
-              className="gradient-primary text-lg md:text-xl px-8 md:px-12 py-4 md:py-6 glow-yellow hover:scale-105 transition-all duration-300 font-bold"
+              className="btn-primary text-lg px-8 py-4 hover:scale-105 transition-all duration-300"
               onClick={() => window.open('https://discord.gg/HCCyw27vm8', '_blank')}
             >
-              START YOUR ORDER NOW
+              Start Your Order
             </Button>
             <Button 
               variant="outline" 
               size="lg"
-              className="border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground text-lg md:text-xl px-8 md:px-12 py-4 md:py-6 transition-all duration-300"
+              className="btn-secondary text-lg px-8 py-4"
               onClick={() => window.open('https://discord.gg/helldivers2boost', '_blank')}
             >
-              JOIN COMMUNITY
+              Join Community
             </Button>
           </div>
         </div>
 
         {/* Feature Highlights */}
-        <div className={`grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto mb-12 transition-all duration-1000 delay-300 ${
+        <div className={`responsive-grid max-w-5xl mx-auto mb-16 transition-all duration-1000 delay-300 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
-          <div className="cyber-border backdrop-blur-strong p-6 md:p-8 rounded-lg hover:glow-yellow transition-all duration-500 group hover:scale-105">
-            <div className="flex flex-col items-center text-center">
-              <Zap className="w-12 h-12 md:w-16 md:h-16 text-primary mb-4 group-hover:scale-110 transition-transform duration-300" />
-              <h3 className="text-xl md:text-2xl font-bold text-primary mb-2 text-glow">RAPID DELIVERY</h3>
-              <p className="text-muted-foreground leading-relaxed">Orders completed efficiently within hours</p>
-            </div>
+          <div className="clean-card text-center group">
+            <Zap className="w-12 h-12 text-primary mb-4 mx-auto group-hover:scale-110 transition-transform" />
+            <h3 className="heading-secondary mb-3">Fast Delivery</h3>
+            <p className="text-muted-foreground">Orders completed efficiently within hours, not days</p>
           </div>
           
-          <div className="cyber-border backdrop-blur-strong p-6 md:p-8 rounded-lg hover:glow-yellow transition-all duration-500 group hover:scale-105">
-            <div className="flex flex-col items-center text-center">
-              <img src={skullIcon} alt="Elite Service" className="w-12 h-12 md:w-16 md:h-16 mb-4 float group-hover:scale-110 transition-transform duration-300" />
-              <h3 className="text-xl md:text-2xl font-bold text-primary mb-2 text-glow">PROFESSIONAL SERVICE</h3>
-              <p className="text-muted-foreground leading-relaxed">Experienced team with consistent results</p>
-            </div>
+          <div className="clean-card text-center group">
+            <Shield className="w-12 h-12 text-primary mb-4 mx-auto group-hover:scale-110 transition-transform" />
+            <h3 className="heading-secondary mb-3">100% Secure</h3>
+            <p className="text-muted-foreground">Your account safety is our top priority</p>
           </div>
           
-          <div className="cyber-border backdrop-blur-strong p-6 md:p-8 rounded-lg hover:glow-yellow transition-all duration-500 group hover:scale-105">
-            <div className="flex flex-col items-center text-center">
-              <Shield className="w-12 h-12 md:w-16 md:h-16 text-primary mb-4 group-hover:scale-110 transition-transform duration-300" />
-              <h3 className="text-xl md:text-2xl font-bold text-primary mb-2 text-glow">100% SECURE</h3>
-              <p className="text-muted-foreground leading-relaxed">Your account safety is our top priority</p>
-            </div>
+          <div className="clean-card text-center group">
+            <Star className="w-12 h-12 text-primary mb-4 mx-auto group-hover:scale-110 transition-transform" />
+            <h3 className="heading-secondary mb-3">Elite Service</h3>
+            <p className="text-muted-foreground">Experienced team with consistent results</p>
           </div>
         </div>
 
         {/* Scroll Indicator */}
+        <div className="text-center">
           <button 
             onClick={() => scrollToSection('pricing')}
-            className="animate-bounce hover:scale-105 transition-transform duration-500 p-3 rounded-full bg-primary/10 hover:bg-primary/20"
-            style={{ animationDuration: '3s' }}
+            className="p-3 rounded-full bg-primary/10 hover:bg-primary/20 transition-all duration-300 animate-gentle-pulse"
           >
             <ArrowDown className="w-6 h-6 text-primary" />
           </button>
+        </div>
       </div>
     </section>
   );

@@ -47,55 +47,51 @@ export const LevelingSection = () => {
     <section 
       id="leveling" 
       ref={sectionRef}
-      className="py-16 md:py-24 bg-gradient-to-b from-background via-card/20 to-background"
+      className="py-16 md:py-24 bg-gradient-to-b from-card/20 to-background"
     >
-      <div className="container mx-auto px-4">
-        <div className={`text-center mb-12 md:mb-16 transition-all duration-1000 ${
+      <div className="container mx-auto px-4 content-width">
+        <div className={`text-center mb-12 transition-all duration-800 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary mb-4 md:mb-6 text-glow">
-            LEVELING SERVICES
+          <h2 className="heading-primary text-center mb-4">
+            Leveling Services
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-balance">
             Professional leveling from 1 to 150. Choose your pace: Standard, Advanced, or Express delivery.
           </p>
         </div>
         
-        <div className={`grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto transition-all duration-1000 delay-300 ${
+        <div className={`responsive-grid max-w-6xl mx-auto transition-all duration-800 delay-300 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
-          <div className="transform hover:scale-105 transition-all duration-500">
-            <ServiceCard 
-              title="STANDARD LEVELING" 
-              items={levelingPackages}
-              note="2-4 days delivery"
-            />
-          </div>
-          <div className="transform hover:scale-105 transition-all duration-500 delay-100">
-            <ServiceCard 
-              title="ADVANCED LEVELING" 
-              items={advancedLeveling}
-              note="3-5 days delivery"
-            />
-          </div>
-          <div className="transform hover:scale-105 transition-all duration-500 delay-200">
-            <ServiceCard 
-              title="EXPRESS LEVELING" 
-              items={expressLeveling}
-              note="24-48h rush delivery"
-            />
-          </div>
+          <ServiceCard 
+            title="STANDARD LEVELING" 
+            items={levelingPackages}
+            note="2-4 days delivery"
+          />
+          <ServiceCard 
+            title="ADVANCED LEVELING" 
+            items={advancedLeveling}
+            note="3-5 days delivery"
+          />
+          <ServiceCard 
+            title="EXPRESS LEVELING" 
+            items={expressLeveling}
+            note="24-48h rush delivery"
+          />
         </div>
 
-        <div className={`text-center mt-8 md:mt-12 transition-all duration-1000 delay-500 ${
+        <div className={`text-center mt-12 transition-all duration-800 delay-500 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
-          <p className="text-sm text-muted-foreground mb-4">
-            Professional automation tools ensure fast and efficient progression
-          </p>
-          <p className="text-xs text-muted-foreground">
-            * All services are completed with advanced automation techniques for optimal efficiency
-          </p>
+          <div className="bg-card border border-border rounded-lg p-6 max-w-3xl mx-auto">
+            <p className="text-foreground font-medium mb-2">
+              ⚡ Professional automation tools ensure fast and efficient progression
+            </p>
+            <p className="text-sm text-muted-foreground">
+              All services are completed with advanced automation techniques for optimal efficiency
+            </p>
+          </div>
         </div>
       </div>
     </section>

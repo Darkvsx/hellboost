@@ -11,30 +11,35 @@ interface BundleCardProps {
 
 export const BundleCard = ({ title, superCredits, medals, samples, price }: BundleCardProps) => {
   return (
-    <Card className="cyber-border backdrop-blur-strong p-4 hover:glow-yellow transition-all duration-300 text-center group">
-      <h3 className="text-lg font-bold text-primary mb-3 text-glow">
+    <Card className="clean-card text-center group h-full flex flex-col">
+      <h3 className="heading-secondary mb-4">
         {title}
       </h3>
-      <div className="space-y-1 mb-4 text-sm">
-        <div className="text-foreground/90">
-          <span className="text-accent font-semibold">{superCredits}</span> SC
+      
+      <div className="space-y-3 mb-6 flex-1">
+        <div className="bg-primary/10 rounded-lg p-3">
+          <span className="text-highlight font-bold text-lg">{superCredits}</span>
+          <span className="text-muted-foreground ml-1">Super Credits</span>
         </div>
-        <div className="text-foreground/90">
-          <span className="text-accent font-semibold">{medals}</span> Medals
+        <div className="bg-accent/10 rounded-lg p-3">
+          <span className="text-accent font-bold text-lg">{medals}</span>
+          <span className="text-muted-foreground ml-1">Medals</span>
         </div>
-        <div className="text-foreground/90">
-          <span className="text-accent font-semibold">{samples}</span> Samples
+        <div className="bg-secondary/50 rounded-lg p-3">
+          <span className="text-foreground font-bold text-lg">{samples}</span>
+          <span className="text-muted-foreground ml-1">Samples</span>
         </div>
       </div>
-      <div className="text-2xl font-bold price-highlight mb-3">
+      
+      <div className="text-3xl font-bold text-highlight mb-6">
         {price}
       </div>
+      
       <Button 
-        size="sm" 
-        className="w-full gradient-primary hover:scale-105 transition-transform font-bold text-xs"
+        className="btn-primary w-full text-lg py-3 mt-auto"
         onClick={() => window.open('https://discord.gg/HCCyw27vm8', '_blank')}
       >
-        Purchase
+        Purchase Bundle
       </Button>
     </Card>
   );
