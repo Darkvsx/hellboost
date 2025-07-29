@@ -63,7 +63,8 @@ export const Footer = () => {
             <span className="text-primary font-bold text-lg">HELLDIVERS BOOST</span>
           </div>
           <p className="text-muted-foreground">
-            © 2025 RobCat Inc. Serving democracy across the galaxy.
+            © 2025 RobCat Inc. 
+            Serving democracy across the galaxy.
           </p>
         </div>
       </div>
