@@ -24,7 +24,10 @@ export const CustomOrderCard = () => {
           </div>
         ))}
       </div>
-      <Button className="w-full gradient-primary hover:scale-105 transition-transform font-bold text-sm">
+      <Button 
+        className="w-full gradient-primary hover:scale-105 transition-transform font-bold text-sm"
+        onClick={() => window.open('https://discord.gg/HCCyw27vm8', '_blank')}
+      >
         OPEN A TICKET
       </Button>
     </Card>

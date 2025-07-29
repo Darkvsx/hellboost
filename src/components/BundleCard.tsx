@@ -29,7 +29,11 @@ export const BundleCard = ({ title, superCredits, medals, samples, price }: Bund
       <div className="text-2xl font-bold price-highlight mb-3">
         {price}
       </div>
-      <Button size="sm" className="w-full gradient-primary hover:scale-105 transition-transform font-bold text-xs">
+      <Button 
+        size="sm" 
+        className="w-full gradient-primary hover:scale-105 transition-transform font-bold text-xs"
+        onClick={() => window.open('https://discord.gg/HCCyw27vm8', '_blank')}
+      >
         Purchase
       </Button>
     </Card>
