@@ -56,6 +56,12 @@ export const Header = () => {
             >
               Bundles
             </button>
+            <button 
+              onClick={() => scrollToSection('faq')}
+              className="text-foreground hover:text-primary transition-colors font-medium"
+            >
+              FAQ
+            </button>
           </nav>
           
           {/* Desktop Action Buttons */}
@@ -109,6 +115,12 @@ export const Header = () => {
                 className="text-left text-foreground hover:text-primary transition-colors font-medium py-2"
               >
                 Bundles
+              </button>
+              <button 
+                onClick={() => scrollToSection('faq')}
+                className="text-left text-foreground hover:text-primary transition-colors font-medium py-2"
+              >
+                FAQ
               </button>
               <div className="flex flex-col space-y-3 pt-4 border-t border-border">
                 <Button 
