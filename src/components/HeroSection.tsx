@@ -81,12 +81,13 @@ export const HeroSection = () => {
         </div>
 
         {/* Scroll Indicator */}
-        <button 
-          onClick={() => scrollToSection('pricing')}
-          className="animate-bounce hover:scale-110 transition-transform duration-300 p-3 rounded-full bg-primary/10 hover:bg-primary/20"
-        >
-          <ArrowDown className="w-6 h-6 text-primary" />
-        </button>
+          <button 
+            onClick={() => scrollToSection('pricing')}
+            className="animate-bounce hover:scale-105 transition-transform duration-500 p-3 rounded-full bg-primary/10 hover:bg-primary/20"
+            style={{ animationDuration: '3s' }}
+          >
+            <ArrowDown className="w-6 h-6 text-primary" />
+          </button>
       </div>
     </section>
   );
