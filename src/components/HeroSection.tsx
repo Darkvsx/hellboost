@@ -32,7 +32,7 @@ export const HeroSection = () => {
           </div>
           
           <p className="text-xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed text-balance">
-            Professional game progression services with fast delivery, secure methods, and competitive pricing
+            Boosting service with fast delivery, secure methods, and competitive pricing
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
@@ -61,7 +61,7 @@ export const HeroSection = () => {
           <div className="clean-card text-center group">
             <Zap className="w-12 h-12 text-primary mb-4 mx-auto group-hover:scale-110 transition-transform" />
             <h3 className="heading-secondary mb-3">Fast Delivery</h3>
-            <p className="text-muted-foreground">Orders completed efficiently within hours, not days</p>
+            <p className="text-muted-foreground">Orders completed efficiently within minutes, not days</p>
           </div>
           
           <div className="clean-card text-center group">
