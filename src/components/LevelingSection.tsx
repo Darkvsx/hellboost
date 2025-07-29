@@ -23,16 +23,16 @@ export const LevelingSection = () => {
   }, []);
 
   const levelingPackages = [
-    { amount: "1-10 Levels", price: "$0.50" },
-    { amount: "1-25 Levels", price: "$1.25" },
-    { amount: "1-50 Levels", price: "$2.50" },
-    { amount: "1-75 Levels", price: "$3.75" }
+    { amount: "1-10 Levels", price: "$1.00" },
+    { amount: "1-25 Levels", price: "$2.00" },
+    { amount: "1-50 Levels", price: "$3.00" },
+    { amount: "1-75 Levels", price: "$4.00" }
   ];
 
   const advancedLeveling = [
-    { amount: "76-100 Levels", price: "$5.00" },
-    { amount: "101-125 Levels", price: "$6.25" },
-    { amount: "126-150 Levels", price: "$7.50" },
+    { amount: "76-100 Levels", price: "$7.50" },
+    { amount: "101-125 Levels", price: "$10.00" },
+    { amount: "126-150 Levels", price: "$12.50" },
     { amount: "Custom Range", price: "Quote" }
   ];
 
@@ -57,7 +57,7 @@ export const LevelingSection = () => {
             Leveling Services
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-balance">
-            Professional leveling from 1 to 150. Choose your pace: Standard, Advanced, or Express delivery.
+            Level Boosting from 1 to 150. Choose your pace: Standard, Advanced, or Express delivery.
           </p>
         </div>
         
@@ -67,17 +67,17 @@ export const LevelingSection = () => {
           <ServiceCard 
             title="STANDARD LEVELING" 
             items={levelingPackages}
-            note="2-4 days delivery"
+            note="~15 mins delivery"
           />
           <ServiceCard 
             title="ADVANCED LEVELING" 
             items={advancedLeveling}
-            note="3-5 days delivery"
+            note="~30 mins delivery"
           />
           <ServiceCard 
             title="EXPRESS LEVELING" 
             items={expressLeveling}
-            note="24-48h rush delivery"
+            note="Blazing fast delivery"
           />
         </div>
 
@@ -86,10 +86,10 @@ export const LevelingSection = () => {
         }`}>
           <div className="bg-card border border-border rounded-lg p-6 max-w-3xl mx-auto">
             <p className="text-foreground font-medium mb-2">
-              ⚡ Professional automation tools ensure fast and efficient progression
+              ⚡ Our tools ensure fast and efficient progression with no account sharing!
             </p>
             <p className="text-sm text-muted-foreground">
-              All services are completed with advanced automation techniques for optimal efficiency
+              We do not need your login informations to deliver.
             </p>
           </div>
         </div>
