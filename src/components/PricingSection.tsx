@@ -67,17 +67,23 @@ export const PricingSection = () => {
           </p>
         </div>
         
-        <div className={`responsive-grid transition-all duration-800 delay-300 ${
+        <div className={`transition-all duration-800 delay-300 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
-          <ServiceCard title="MEDALS" items={medalsData} />
-          <CustomOrderCard />
-          <ServiceCard 
-            title="SUPER CREDITS" 
-            items={superCreditsData} 
-            note="Extra SC given free"
-          />
-          <ServiceCard title="SAMPLES" items={samplesData} />
+          <div className="responsive-grid mb-8">
+            <ServiceCard title="MEDALS" items={medalsData} />
+            <ServiceCard title="SAMPLES" items={samplesData} />
+            <ServiceCard 
+              title="SUPER CREDITS" 
+              items={superCreditsData} 
+              note="Extra SC given free"
+            />
+          </div>
+          <div className="flex justify-center">
+            <div className="w-full max-w-md">
+              <CustomOrderCard />
+            </div>
+          </div>
         </div>
       </div>
     </section>
