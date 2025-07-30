@@ -281,7 +281,7 @@ export const FAQ = () => {
                 </button>
                 
                 <div className={`transition-all duration-300 ease-in-out ${
-                  isExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                  isExpanded ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'
                 } overflow-hidden`}>
                   <div className="px-6 pb-6 pt-0">
                     <div className="pl-16 prose prose-invert max-w-none">

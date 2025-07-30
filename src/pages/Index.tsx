@@ -1,5 +1,6 @@
 import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
+import { TrustIndicators } from "@/components/TrustIndicators";
 import { PricingSection } from "@/components/PricingSection";
 import { LevelingSection } from "@/components/LevelingSection";
 import { BundlesSection } from "@/components/BundlesSection";
@@ -23,6 +24,7 @@ const Index = () => {
       <div className="relative z-10">
         <Header />
         <HeroSection />
+        <TrustIndicators />
         <PricingSection />
         <LevelingSection />
         <BundlesSection />

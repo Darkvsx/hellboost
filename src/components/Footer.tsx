@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Ticket, Shield, Clock, Star } from "lucide-react";
+import { MessageCircle, Ticket, ExternalLink } from "lucide-react";
 import skullIcon from "@/assets/skull-wings-icon.png";
 
 export const Footer = () => {
@@ -37,35 +37,47 @@ export const Footer = () => {
           </div>
         </div>
 
-        {/* Trust Indicators */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 max-w-4xl mx-auto">
-          <div className="text-center">
-            <Clock className="w-12 h-12 text-primary mx-auto mb-3" />
-            <h3 className="font-bold text-lg text-primary mb-2">24/7 SUPPORT</h3>
-            <p className="text-muted-foreground">Always available when you need us</p>
-          </div>
-          <div className="text-center">
-            <Shield className="w-12 h-12 text-primary mx-auto mb-3" />
-            <h3 className="font-bold text-lg text-primary mb-2">SECURE PROCESS</h3>
-            <p className="text-muted-foreground">Your account is 100% safe with us</p>
-          </div>
-          <div className="text-center">
-            <Star className="w-12 h-12 text-primary mx-auto mb-3" />
-            <h3 className="font-bold text-lg text-primary mb-2">5-STAR SERVICE</h3>
-            <p className="text-muted-foreground">Rated excellent by our customers</p>
-          </div>
-        </div>
-
         {/* Footer Bottom */}
-        <div className="border-t border-border pt-8 text-center">
-          <div className="flex items-center justify-center space-x-3 mb-4">
-            <img src={skullIcon} alt="Helldivers Boost" className="w-8 h-8" />
-            <span className="text-primary font-bold text-lg">HELLDIVERS BOOST</span>
+        <div className="border-t border-border pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            {/* Brand */}
+            <div className="flex items-center space-x-3">
+              <img src={skullIcon} alt="Helldivers Boost" className="w-8 h-8" />
+              <div>
+                <span className="text-primary font-bold text-lg block">HELLDIVERS BOOST</span>
+                <p className="text-xs text-muted-foreground">Serving democracy across the galaxy</p>
+              </div>
+            </div>
+            
+            {/* Social Links */}
+            <div className="flex items-center gap-4">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-muted-foreground hover:text-primary transition-colors"
+                onClick={() => window.open('https://www.tiktok.com/@darkvsx6', '_blank')}
+              >
+                <ExternalLink className="w-4 h-4 mr-2" />
+                TikTok
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-muted-foreground hover:text-primary transition-colors"
+                onClick={() => window.open('https://discord.gg/helldivers2boost', '_blank')}
+              >
+                <MessageCircle className="w-4 h-4 mr-2" />
+                Discord
+              </Button>
+            </div>
+            
+            {/* Copyright */}
+            <div className="text-center md:text-right">
+              <p className="text-xs text-muted-foreground">
+                © 2025 RobCat Inc.
+              </p>
+            </div>
           </div>
-          <p className="text-muted-foreground">
-            © 2025 RobCat Inc.<br />
-            Serving democracy across the galaxy.
-          </p>
         </div>
       </div>
     </footer>
