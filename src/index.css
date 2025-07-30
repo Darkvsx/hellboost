@@ -252,7 +252,7 @@ All colors MUST be HSL.
   .responsive-grid {
     display: grid;
     gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
 
   .section-spacing {

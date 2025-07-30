@@ -1,6 +1,5 @@
 import { ServiceCard } from "@/components/ServiceCard";
 import { CustomOrderCard } from "@/components/CustomOrderCard";
-import { QuoteBuilder } from "@/components/QuoteBuilder";
 import { useEffect, useRef, useState } from "react";
 
 export const PricingSection = () => {
@@ -72,14 +71,13 @@ export const PricingSection = () => {
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           <ServiceCard title="MEDALS" items={medalsData} />
-          <ServiceCard title="SAMPLES" items={samplesData} />
+          <CustomOrderCard />
           <ServiceCard 
             title="SUPER CREDITS" 
             items={superCreditsData} 
             note="Extra SC given free"
           />
-          <QuoteBuilder />
-          <CustomOrderCard />
+          <ServiceCard title="SAMPLES" items={samplesData} />
         </div>
       </div>
     </section>
