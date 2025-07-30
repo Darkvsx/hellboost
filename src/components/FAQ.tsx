@@ -36,43 +36,103 @@ export const FAQ = () => {
     {
       id: "safety",
       icon: Shield,
-      question: "Is This Safe?",
+      question: "Is This Service Safe?",
       answer: (
         <div className="space-y-4">
-          <p className="text-lg font-medium text-foreground">This service is about 75% safe, 25% MAYBE?</p>
-          <div className="bg-muted/50 rounded-lg p-4 space-y-3">
-            <p className="text-foreground font-medium">✅ Zero reports of punishments for clients or boosters</p>
-            <p className="text-foreground font-medium">✅ No bans, no wipes — nothing</p>
+          <div className="flex items-center gap-3 p-4 bg-gradient-to-r from-green-500/10 to-green-600/10 border border-green-500/20 rounded-lg">
+            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+            <p className="text-lg font-semibold text-green-400">75% Safe, 25% Caution</p>
           </div>
-          <p className="text-muted-foreground">While no method is 100% risk-free, results so far speak for themselves.</p>
+          
+          <div className="grid gap-3">
+            <div className="flex items-start gap-3 p-3 bg-primary/5 rounded-lg">
+              <div className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center mt-0.5">
+                <span className="text-white text-xs font-bold">✓</span>
+              </div>
+              <div>
+                <p className="font-medium text-foreground">Zero Ban Reports</p>
+                <p className="text-sm text-muted-foreground">No confirmed punishments for any clients or boosters</p>
+              </div>
+            </div>
+            
+            <div className="flex items-start gap-3 p-3 bg-primary/5 rounded-lg">
+              <div className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center mt-0.5">
+                <span className="text-white text-xs font-bold">✓</span>
+              </div>
+              <div>
+                <p className="font-medium text-foreground">Account Security</p>
+                <p className="text-sm text-muted-foreground">No account wipes or progress loss reported</p>
+              </div>
+            </div>
+          </div>
+          
+          <div className="p-3 bg-muted/30 border-l-4 border-accent rounded-r-lg">
+            <p className="text-sm text-muted-foreground italic">
+              While no method is 100% risk-free, our track record speaks for itself.
+            </p>
+          </div>
         </div>
       )
     },
     {
       id: "process",
       icon: HelpCircle,
-      question: "How Does This Work?",
+      question: "How Does the Boosting Process Work?",
       answer: (
         <div className="space-y-4">
-          <div className="bg-primary/5 rounded-lg p-4">
-            <ol className="list-decimal list-inside space-y-3 text-foreground">
-              <li className="text-lg">Add me on Helldivers 2</li>
-              <li className="text-lg">Join my session</li>
-            </ol>
+          <p className="text-lg text-foreground font-medium">Simple & Secure Process</p>
+          
+          <div className="space-y-3">
+            <div className="flex items-center gap-4 p-4 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/20 rounded-lg">
+              <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-bold">1</div>
+              <div>
+                <p className="font-semibold text-foreground">Add Me on Helldivers 2</p>
+                <p className="text-sm text-muted-foreground">Send a friend request through the game</p>
+              </div>
+            </div>
+            
+            <div className="flex items-center gap-4 p-4 bg-gradient-to-r from-accent/10 to-accent/5 border border-accent/20 rounded-lg">
+              <div className="w-8 h-8 bg-accent rounded-full flex items-center justify-center text-accent-foreground font-bold">2</div>
+              <div>
+                <p className="font-semibold text-foreground">Join My Game Session</p>
+                <p className="text-sm text-muted-foreground">Simply join when I invite you to play</p>
+              </div>
+            </div>
           </div>
-          <p className="text-muted-foreground text-lg">That's it. No password sharing, no shady steps. Just drop in and play.</p>
+          
+          <div className="p-4 bg-gradient-to-r from-green-500/10 to-blue-500/10 border border-primary/20 rounded-lg">
+            <p className="text-center font-medium text-foreground">
+              🎮 That's it! No passwords, no account sharing, just pure gaming fun.
+            </p>
+          </div>
         </div>
       )
     },
     {
       id: "payment",
       icon: CreditCard,
-      question: "What Payment Methods Do You Accept?",
+      question: "What Payment Methods Are Accepted?",
       answer: (
         <div className="space-y-4">
-          <p className="text-foreground font-medium text-lg">PayPal only (for now)</p>
-          <div className="bg-accent/10 rounded-lg p-4">
-            <p className="text-muted-foreground">Still working on more options that don't take huge fees so I can keep prices low and fair.</p>
+          <div className="flex items-center gap-3 p-4 bg-gradient-to-r from-blue-500/10 to-blue-600/10 border border-blue-500/20 rounded-lg">
+            <CreditCard className="w-6 h-6 text-blue-400" />
+            <div>
+              <p className="text-lg font-semibold text-foreground">PayPal Only (Currently)</p>
+              <p className="text-sm text-muted-foreground">Secure and trusted payment processing</p>
+            </div>
+          </div>
+          
+          <div className="p-4 bg-muted/20 border border-border rounded-lg">
+            <p className="text-sm text-muted-foreground mb-2 font-medium">🔧 Coming Soon:</p>
+            <p className="text-sm text-muted-foreground">
+              More payment options are in development. We're working hard to add alternatives that don't charge massive fees, 
+              so we can keep our prices fair and affordable for everyone.
+            </p>
+          </div>
+          
+          <div className="flex items-center gap-2 p-3 bg-green-500/10 border border-green-500/20 rounded-lg">
+            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+            <p className="text-sm text-green-400 font-medium">100% Secure Transactions</p>
           </div>
         </div>
       )
@@ -80,15 +140,41 @@ export const FAQ = () => {
     {
       id: "purchase",
       icon: ShoppingCart,
-      question: "How Do I Purchase?",
+      question: "How Do I Place an Order?",
       answer: (
         <div className="space-y-4">
-          <div className="bg-secondary/50 rounded-lg p-4">
-            <ol className="list-decimal list-inside space-y-3 text-foreground">
-              <li className="text-lg">Open a ticket in Order channel</li>
-              <li className="text-lg">Specify if you're buying a pre-made pack or would like a custom order</li>
-              <li className="text-lg">After confirming everything is fine with you, we'll proceed to payment & fulfilling your order</li>
-            </ol>
+          <p className="text-lg font-medium text-foreground">Quick & Easy Ordering</p>
+          
+          <div className="space-y-3">
+            <div className="flex gap-4 p-4 bg-gradient-to-r from-purple-500/10 to-purple-600/10 border border-purple-500/20 rounded-lg">
+              <div className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">1</div>
+              <div>
+                <p className="font-semibold text-foreground">Open a Ticket</p>
+                <p className="text-sm text-muted-foreground">Use the Order channel in our Discord server</p>
+              </div>
+            </div>
+            
+            <div className="flex gap-4 p-4 bg-gradient-to-r from-blue-500/10 to-blue-600/10 border border-blue-500/20 rounded-lg">
+              <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">2</div>
+              <div>
+                <p className="font-semibold text-foreground">Choose Your Service</p>
+                <p className="text-sm text-muted-foreground">Select a pre-made package or request a custom order</p>
+              </div>
+            </div>
+            
+            <div className="flex gap-4 p-4 bg-gradient-to-r from-green-500/10 to-green-600/10 border border-green-500/20 rounded-lg">
+              <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">3</div>
+              <div>
+                <p className="font-semibold text-foreground">Confirm & Pay</p>
+                <p className="text-sm text-muted-foreground">Review details, complete payment, and we'll start immediately</p>
+              </div>
+            </div>
+          </div>
+          
+          <div className="p-3 bg-accent/10 border border-accent/20 rounded-lg">
+            <p className="text-sm text-center text-foreground font-medium">
+              ⚡ Most orders begin within 30 minutes of payment confirmation
+            </p>
           </div>
         </div>
       )
@@ -96,15 +182,51 @@ export const FAQ = () => {
     {
       id: "pricing",
       icon: DollarSign,
-      question: "Why Are Your Prices Lower Than Others?",
+      question: "Why Are Your Prices So Competitive?",
       answer: (
         <div className="space-y-4">
-          <p className="text-muted-foreground text-lg">Honestly? They should be.</p>
-          <div className="space-y-3">
-            <p className="text-foreground text-lg">💰 I don't believe simple services should cost a fortune</p>
-            <p className="text-foreground text-lg">🤝 I respect your time and money — so I keep prices competitive and fair</p>
+          <div className="p-4 bg-gradient-to-r from-accent/10 to-primary/10 border border-accent/20 rounded-lg">
+            <p className="text-lg font-medium text-foreground mb-2">Fair Pricing Philosophy</p>
+            <p className="text-muted-foreground">Gaming services shouldn't cost a fortune. Period.</p>
           </div>
-          <p className="text-muted-foreground">Boosting in Helldivers 2 shouldn't break the bank.</p>
+          
+          <div className="grid gap-3">
+            <div className="flex items-start gap-3 p-3 bg-card/50 border border-border rounded-lg">
+              <div className="w-6 h-6 bg-accent rounded-full flex items-center justify-center mt-0.5">
+                <span className="text-accent-foreground text-xs font-bold">💰</span>
+              </div>
+              <div>
+                <p className="font-medium text-foreground">Honest Value</p>
+                <p className="text-sm text-muted-foreground">No inflated prices or hidden fees</p>
+              </div>
+            </div>
+            
+            <div className="flex items-start gap-3 p-3 bg-card/50 border border-border rounded-lg">
+              <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center mt-0.5">
+                <span className="text-primary-foreground text-xs font-bold">🤝</span>
+              </div>
+              <div>
+                <p className="font-medium text-foreground">Respect Your Budget</p>
+                <p className="text-sm text-muted-foreground">Quality service at prices that make sense</p>
+              </div>
+            </div>
+            
+            <div className="flex items-start gap-3 p-3 bg-card/50 border border-border rounded-lg">
+              <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mt-0.5">
+                <span className="text-white text-xs font-bold">⚡</span>
+              </div>
+              <div>
+                <p className="font-medium text-foreground">Efficient Service</p>
+                <p className="text-sm text-muted-foreground">Lower overhead means better prices for you</p>
+              </div>
+            </div>
+          </div>
+          
+          <div className="p-3 bg-muted/20 border-l-4 border-primary rounded-r-lg">
+            <p className="text-sm text-muted-foreground italic">
+              "Boosting shouldn't break the bank. Great service at fair prices – that's our promise."
+            </p>
+          </div>
         </div>
       )
     }
