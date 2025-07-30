@@ -1,5 +1,6 @@
 import { ServiceCard } from "@/components/ServiceCard";
 import { CustomOrderCard } from "@/components/CustomOrderCard";
+import { QuoteBuilder } from "@/components/QuoteBuilder";
 import { useEffect, useRef, useState } from "react";
 
 export const PricingSection = () => {
@@ -77,6 +78,7 @@ export const PricingSection = () => {
             items={superCreditsData} 
             note="Extra SC given free"
           />
+          <QuoteBuilder />
           <CustomOrderCard />
         </div>
       </div>
