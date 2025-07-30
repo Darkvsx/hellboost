@@ -294,14 +294,6 @@ export const FAQ = () => {
           })}
         </div>
         
-        <div className={`text-center mt-12 transition-all duration-800 delay-500 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}>
-          <div className="bg-card border border-border rounded-lg p-6 max-w-2xl mx-auto">
-            <p className="text-foreground font-medium mb-2">Still have questions?</p>
-            <p className="text-muted-foreground">Join our Discord community for real-time support and updates!</p>
-          </div>
-        </div>
       </div>
     </section>
   );
