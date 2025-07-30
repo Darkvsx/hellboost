@@ -1,4 +1,3 @@
-import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Settings, Star } from "lucide-react";
 
@@ -12,34 +11,34 @@ export const CustomOrderCard = () => {
   ];
 
   return (
-    <Card className="clean-card h-full">
-      <div className="flex items-center justify-center mb-6">
-        <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-3">
-          <Settings className="w-6 h-6 text-primary" />
+    <div className="service-card">
+      <div className="flex items-center justify-center mb-8">
+        <div className="w-14 h-14 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl flex items-center justify-center mr-4 transition-all duration-300 group-hover:from-primary/30 group-hover:to-primary/20">
+          <Settings className="w-7 h-7 text-primary" />
         </div>
-        <h3 className="text-xl font-bold text-foreground text-center">
+        <h3 className="heading-tertiary text-center mb-0 bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
           CUSTOM ORDERS
         </h3>
       </div>
       
-      <div className="space-y-4 mb-6">
+      <div className="space-y-4 mb-8">
         {customServices.map((service, index) => (
-          <div key={index} className="flex justify-between items-center p-3 bg-secondary/30 rounded-lg">
-            <span className="text-foreground font-medium">{service.amount}</span>
-            <span className="text-highlight font-bold text-lg">{service.price}</span>
+          <div key={index} className="service-item">
+            <span className="text-foreground font-medium text-sm">{service.amount}</span>
+            <span className="service-price text-lg">{service.price}</span>
           </div>
         ))}
       </div>
       
       <div className="mt-auto">
         <Button 
-          className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground font-bold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25"
+          className="btn-primary-gradient w-full group"
           onClick={() => window.open('https://discord.gg/HCCyw27vm8', '_blank')}
         >
-          <Star className="w-4 h-4 mr-2" />
+          <Star className="w-4 h-4 mr-2 transition-transform group-hover:rotate-12" />
           OPEN A TICKET
         </Button>
       </div>
-    </Card>
+    </div>
   );
 };

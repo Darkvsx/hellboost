@@ -27,26 +27,29 @@ export const BundlesSection = () => {
     <section 
       id="bundles" 
       ref={sectionRef}
-      className="py-16 md:py-24 bg-gradient-to-r from-background via-card/30 to-background"
+      className="section-spacing section-bg-primary"
     >
-      <div className="container mx-auto px-4">
-        <div className={`text-center mb-12 md:mb-16 transition-all duration-1000 ${
+      <div className="section-decoration"></div>
+      <div className="content-width relative z-10">
+        <div className={`section-header transition-all duration-800 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
-          <div className="flex items-center justify-center gap-3 mb-4 md:mb-6">
-            <Badge variant="outline" className="border-primary text-primary px-4 py-2 text-sm md:text-base animate-pulse">
+          <div className="section-badge">
+            <Badge variant="outline" className="border-primary text-primary px-3 py-1 text-xs font-medium animate-pulse">
               BEST VALUE
             </Badge>
+            <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+            <span className="text-sm font-medium text-primary">BUNDLE PACKAGES</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary mb-4 md:mb-6 text-glow">
-            BUNDLE PACKAGES
+          <h2 className="section-title">
+            Premium Bundle Deals
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Save more with our carefully crafted bundle deals designed for different play styles
+          <p className="section-description">
+            Save more with our carefully crafted bundle deals designed for different play styles. Maximum value for serious Helldivers.
           </p>
         </div>
         
-        <div className={`grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6 max-w-7xl mx-auto transition-all duration-1000 delay-300 ${
+        <div className={`grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 transition-all duration-800 delay-300 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           <div className="transform hover:scale-105 transition-all duration-300">

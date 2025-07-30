@@ -236,21 +236,26 @@ export const FAQ = () => {
     <section 
       id="faq" 
       ref={sectionRef}
-      className="py-16 md:py-24 bg-gradient-to-b from-background to-card/20"
+      className="section-spacing section-bg-accent"
     >
-      <div className="container mx-auto px-4 content-width">
-        <div className={`text-center mb-12 transition-all duration-800 ${
+      <div className="section-decoration"></div>
+      <div className="content-width relative z-10">
+        <div className={`section-header transition-all duration-800 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
-          <h2 className="heading-primary text-center mb-4">
+          <div className="section-badge">
+            <div className="w-2 h-2 bg-accent rounded-full animate-pulse"></div>
+            <span className="text-sm font-medium text-accent">SUPPORT CENTER</span>
+          </div>
+          <h2 className="section-title">
             Frequently Asked Questions
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Get clear answers to the most common questions about our services
+          <p className="section-description">
+            Get clear answers to the most common questions about our services and processes.
           </p>
         </div>
         
-        <div className={`max-w-4xl mx-auto space-y-4 transition-all duration-800 delay-200 ${
+        <div className={`max-w-4xl mx-auto space-y-6 transition-all duration-800 delay-200 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           {faqData.map((faq, index) => {
@@ -260,7 +265,7 @@ export const FAQ = () => {
             return (
               <div
                 key={faq.id}
-                className="group relative overflow-hidden rounded-xl border border-border/50 bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10"
+                className="info-card group relative overflow-hidden"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <button
@@ -269,22 +274,22 @@ export const FAQ = () => {
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-4">
-                      <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl flex items-center justify-center group-hover:from-primary/30 group-hover:to-primary/20 transition-all duration-300">
-                        <IconComponent className="w-6 h-6 text-primary" />
+                      <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl flex items-center justify-center group-hover:from-primary/30 group-hover:to-primary/20 transition-all duration-300">
+                        <IconComponent className="w-7 h-7 text-primary" />
                       </div>
-                      <h3 className="heading-secondary text-left mb-0">{faq.question}</h3>
+                      <h3 className="heading-tertiary text-left mb-0">{faq.question}</h3>
                     </div>
                     <div className={`transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}>
-                      <ChevronDown className="w-5 h-5 text-muted-foreground" />
+                      <ChevronDown className="w-6 h-6 text-muted-foreground" />
                     </div>
                   </div>
                 </button>
                 
                 <div className={`transition-all duration-300 ease-in-out ${
-                  isExpanded ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'
+                  isExpanded ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'
                 } overflow-hidden`}>
                   <div className="px-6 pb-6 pt-0">
-                    <div className="pl-16 prose prose-invert max-w-none">
+                    <div className="pl-18 prose prose-invert max-w-none">
                       {faq.answer}
                     </div>
                   </div>
@@ -293,7 +298,6 @@ export const FAQ = () => {
             );
           })}
         </div>
-        
       </div>
     </section>
   );

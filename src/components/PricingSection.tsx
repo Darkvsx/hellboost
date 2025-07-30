@@ -48,21 +48,26 @@ export const PricingSection = () => {
     <section 
       id="pricing" 
       ref={sectionRef}
-      className="py-16 md:py-24 bg-gradient-to-b from-background to-card/20"
+      className="section-spacing section-bg-primary"
     >
-      <div className="container mx-auto px-4 content-width">
-        <div className={`text-center mb-12 transition-all duration-800 ${
+      <div className="section-decoration"></div>
+      <div className="content-width relative z-10">
+        <div className={`section-header transition-all duration-800 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
-          <h2 className="heading-primary text-center mb-4">
-            Currency Services
+          <div className="section-badge">
+            <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+            <span className="text-sm font-medium text-primary">CURRENCY SERVICES</span>
+          </div>
+          <h2 className="section-title">
+            Premium Currency Services
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-balance">
-            Choose from our competitive rates or create a custom order for your specific needs
+          <p className="section-description">
+            Choose from our competitive rates or create a custom order for your specific needs. All services delivered fast and securely.
           </p>
         </div>
         
-        <div className={`responsive-grid max-w-7xl mx-auto transition-all duration-800 delay-300 ${
+        <div className={`responsive-grid transition-all duration-800 delay-300 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           <ServiceCard title="MEDALS" items={medalsData} />
