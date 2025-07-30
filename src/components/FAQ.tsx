@@ -1,9 +1,10 @@
 import { Card } from "@/components/ui/card";
 import { useEffect, useRef, useState } from "react";
-import { Shield, HelpCircle, CreditCard, ShoppingCart, DollarSign } from "lucide-react";
+import { Shield, HelpCircle, CreditCard, ShoppingCart, DollarSign, ChevronDown } from "lucide-react";
 
 export const FAQ = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [expandedItems, setExpandedItems] = useState<string[]>([]);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -22,6 +23,14 @@ export const FAQ = () => {
 
     return () => observer.disconnect();
   }, []);
+
+  const toggleExpand = (id: string) => {
+    setExpandedItems(prev => 
+      prev.includes(id) 
+        ? prev.filter(item => item !== id)
+        : [...prev, id]
+    );
+  };
 
   const faqData = [
     {
@@ -119,29 +128,46 @@ export const FAQ = () => {
           </p>
         </div>
         
-        <div className={`max-w-4xl mx-auto space-y-6 transition-all duration-800 delay-200 ${
+        <div className={`max-w-4xl mx-auto space-y-4 transition-all duration-800 delay-200 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           {faqData.map((faq, index) => {
             const IconComponent = faq.icon;
+            const isExpanded = expandedItems.includes(faq.id);
+            
             return (
-              <Card 
-                key={faq.id} 
-                className="clean-card"
+              <div
+                key={faq.id}
+                className="group relative overflow-hidden rounded-xl border border-border/50 bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <IconComponent className="w-6 h-6 text-primary" />
+                <button
+                  onClick={() => toggleExpand(faq.id)}
+                  className="w-full p-6 text-left transition-all duration-300 hover:bg-primary/5"
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-4">
+                      <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl flex items-center justify-center group-hover:from-primary/30 group-hover:to-primary/20 transition-all duration-300">
+                        <IconComponent className="w-6 h-6 text-primary" />
+                      </div>
+                      <h3 className="heading-secondary text-left mb-0">{faq.question}</h3>
+                    </div>
+                    <div className={`transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}>
+                      <ChevronDown className="w-5 h-5 text-muted-foreground" />
+                    </div>
                   </div>
-                  <div className="flex-1">
-                    <h3 className="heading-secondary mb-4">{faq.question}</h3>
-                    <div className="prose prose-invert max-w-none">
+                </button>
+                
+                <div className={`transition-all duration-300 ease-in-out ${
+                  isExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                } overflow-hidden`}>
+                  <div className="px-6 pb-6 pt-0">
+                    <div className="pl-16 prose prose-invert max-w-none">
                       {faq.answer}
                     </div>
                   </div>
                 </div>
-              </Card>
+              </div>
             );
           })}
         </div>
