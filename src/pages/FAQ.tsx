@@ -45,15 +45,14 @@ const FAQ = () => {
       answer: (
         <div className="space-y-3">
           <p>
-            Yes, our service is completely safe. We use legitimate methods and experienced players 
-            to complete your orders. We never use cheats, hacks, or any methods that violate the game's 
-            terms of service.
+            We do use third-party software (cheat) but we minimize risks as best as possible for you. 
+            Our experienced team takes every precaution to ensure your account safety.
           </p>
           <ul className="list-disc pl-5 space-y-1 text-sm text-foreground/80">
             <li>All work done by human players</li>
-            <li>No third-party software or cheats</li>
-            <li>We follow all game rules and guidelines</li>
+            <li>We minimize risks as much as possible</li>
             <li>No account sharing required</li>
+            <li>Experienced team with safety protocols</li>
           </ul>
         </div>
       )
@@ -70,7 +69,7 @@ const FAQ = () => {
             <li><strong>Contact:</strong> We'll reach out via Discord within 30 minutes</li>
             <li><strong>Coordination:</strong> Schedule the boosting session at your convenience</li>
             <li><strong>Completion:</strong> Our professionals complete your order efficiently</li>
-            <li><strong>Delivery:</strong> Receive your boosted account and confirmation</li>
+            <li><strong>Delivery:</strong> You join our lobby and we boost you directly</li>
           </ol>
         </div>
       )
@@ -81,12 +80,9 @@ const FAQ = () => {
       question: "What payment methods do you accept?",
       answer: (
         <div className="space-y-3">
-          <p>We accept various secure payment methods:</p>
+          <p>We currently accept PayPal as our payment method:</p>
           <ul className="list-disc pl-5 space-y-1 text-sm text-foreground/80">
-            <li>PayPal (most popular)</li>
-            <li>Cryptocurrency (Bitcoin, Ethereum)</li>
-            <li>Credit/Debit Cards</li>
-            <li>Bank transfers</li>
+            <li>PayPal - secure and reliable</li>
           </ul>
           <p className="text-sm text-foreground/80">
             All payments are processed through secure, encrypted channels to protect your financial information.
@@ -102,7 +98,7 @@ const FAQ = () => {
         <div className="space-y-3">
           <p>Delivery times vary depending on the service:</p>
           <ul className="list-disc pl-5 space-y-1 text-sm text-foreground/80">
-            <li><strong>Currency Services:</strong> 1-6 hours</li>
+            <li><strong>Currency Services:</strong> 5 to 15 minutes</li>
             <li><strong>Leveling:</strong> 12-48 hours depending on levels</li>
             <li><strong>Custom Orders:</strong> Discussed during consultation</li>
           </ul>
