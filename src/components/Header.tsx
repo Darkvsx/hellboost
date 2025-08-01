@@ -1,11 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Ticket, Menu, X, Coins, TrendingUp, Package, HelpCircle } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import skullIcon from "@/assets/skull-wings-icon.png";
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,8 +20,22 @@ export const Header = () => {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    element?.scrollIntoView({ behavior: 'smooth' });
+    if (isHomePage) {
+      const element = document.getElementById(sectionId);
+      element?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      navigate('/', { replace: true });
+      // Wait for navigation then scroll
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        element?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+    setIsMobileMenuOpen(false);
+  };
+
+  const navigateToFAQ = () => {
+    navigate('/faq');
     setIsMobileMenuOpen(false);
   };
 
@@ -73,7 +91,7 @@ export const Header = () => {
               <div className="absolute -bottom-2 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></div>
             </button>
             <button 
-              onClick={() => scrollToSection('faq')}
+              onClick={navigateToFAQ}
               className="group flex items-center gap-2 text-foreground hover:text-primary transition-all duration-300 font-medium relative"
             >
               <HelpCircle className="w-4 h-4 transition-transform group-hover:scale-110" />
@@ -142,7 +160,7 @@ export const Header = () => {
                 Bundles
               </button>
               <button 
-                onClick={() => scrollToSection('faq')}
+                onClick={navigateToFAQ}
                 className="group flex items-center gap-3 text-left text-foreground hover:text-primary transition-all duration-300 font-medium py-2 px-3 rounded-lg hover:bg-primary/5"
               >
                 <HelpCircle className="w-4 h-4 transition-transform group-hover:scale-110" />

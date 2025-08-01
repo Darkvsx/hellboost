@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Settings, Star, Calculator, Plus, Minus } from "lucide-react";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { Settings, Star, Calculator, Plus, Minus, ChevronDown } from "lucide-react";
 
 export const CustomOrderCard = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const [medals, setMedals] = useState(0);
   const [samples, setSamples] = useState(0);
   const [superCredits, setSuperCredits] = useState(0);
@@ -47,116 +49,130 @@ export const CustomOrderCard = () => {
 
   return (
     <div className="service-card">
-      <div className="flex items-center justify-center mb-8">
-        <div className="w-14 h-14 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl flex items-center justify-center mr-4 transition-all duration-300 group-hover:from-primary/30 group-hover:to-primary/20">
-          <Calculator className="w-7 h-7 text-primary" />
-        </div>
-        <h3 className="heading-tertiary text-center mb-0 bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
-          CUSTOM ORDER
-        </h3>
-      </div>
-      
-      <div className="space-y-4 mb-6">
-        {/* Medals */}
-        <div className="space-y-2">
-          <label className="text-sm font-medium text-foreground">Medals ($0.01 each)</label>
-          <div className="flex items-center gap-2">
-            <Button
-              size="sm"
-              variant="outline"
-              onClick={() => adjustQuantity('medals', -1)}
-              className="h-8 w-8 p-0"
-            >
-              <Minus className="h-3 w-3" />
-            </Button>
-            <Input
-              type="number"
-              value={medals}
-              onChange={(e) => handleQuantityChange('medals', e.target.value)}
-              className="text-center"
-              min="0"
-            />
-            <Button
-              size="sm"
-              variant="outline"
-              onClick={() => adjustQuantity('medals', 1)}
-              className="h-8 w-8 p-0"
-            >
-              <Plus className="h-3 w-3" />
-            </Button>
-          </div>
-        </div>
-
-        {/* Samples */}
-        <div className="space-y-2">
-          <label className="text-sm font-medium text-foreground">Samples ($0.01 each)</label>
-          <div className="flex items-center gap-2">
-            <Button
-              size="sm"
-              variant="outline"
-              onClick={() => adjustQuantity('samples', -1)}
-              className="h-8 w-8 p-0"
-            >
-              <Minus className="h-3 w-3" />
-            </Button>
-            <Input
-              type="number"
-              value={samples}
-              onChange={(e) => handleQuantityChange('samples', e.target.value)}
-              className="text-center"
-              min="0"
-            />
-            <Button
-              size="sm"
-              variant="outline"
-              onClick={() => adjustQuantity('samples', 1)}
-              className="h-8 w-8 p-0"
-            >
-              <Plus className="h-3 w-3" />
-            </Button>
-          </div>
-        </div>
-
-        {/* Super Credits */}
-        <div className="space-y-2">
-          <label className="text-sm font-medium text-foreground">Super Credits ($0.0055 each)</label>
-          <div className="flex items-center gap-2">
-            <Button
-              size="sm"
-              variant="outline"
-              onClick={() => adjustQuantity('superCredits', -1)}
-              className="h-8 w-8 p-0"
-            >
-              <Minus className="h-3 w-3" />
-            </Button>
-            <Input
-              type="number"
-              value={superCredits}
-              onChange={(e) => handleQuantityChange('superCredits', e.target.value)}
-              className="text-center"
-              min="0"
-            />
-            <Button
-              size="sm"
-              variant="outline"
-              onClick={() => adjustQuantity('superCredits', 1)}
-              className="h-8 w-8 p-0"
-            >
-              <Plus className="h-3 w-3" />
-            </Button>
-          </div>
-        </div>
-
-        {/* Total */}
-        {totalPrice > 0 && (
-          <div className="pt-4 border-t border-border/30">
-            <div className="flex items-center justify-between mb-3">
-              <span className="text-foreground font-medium">Quote Total:</span>
-              <span className="text-xl font-bold text-primary">${totalPrice.toFixed(2)}</span>
+      <Collapsible open={isOpen} onOpenChange={setIsOpen}>
+        <CollapsibleTrigger asChild>
+          <button className="w-full group">
+            <div className="flex items-center justify-center mb-8">
+              <div className="w-14 h-14 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl flex items-center justify-center mr-4 transition-all duration-300 group-hover:from-primary/30 group-hover:to-primary/20">
+                <Calculator className="w-7 h-7 text-primary" />
+              </div>
+              <div className="flex-1">
+                <h3 className="heading-tertiary text-center mb-0 bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
+                  CUSTOM ORDER
+                </h3>
+                <p className="text-sm text-foreground/60 mt-2">
+                  {isOpen ? 'Click to collapse' : 'Click to expand builder'}
+                </p>
+              </div>
+              <ChevronDown className={`w-5 h-5 text-primary transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
             </div>
+          </button>
+        </CollapsibleTrigger>
+
+        <CollapsibleContent className="space-y-6">
+          <div className="space-y-4 mb-6">
+            {/* Medals */}
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-foreground">Medals ($0.01 each)</label>
+              <div className="flex items-center gap-2">
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={() => adjustQuantity('medals', -1)}
+                  className="h-8 w-8 p-0"
+                >
+                  <Minus className="h-3 w-3" />
+                </Button>
+                <Input
+                  type="number"
+                  value={medals}
+                  onChange={(e) => handleQuantityChange('medals', e.target.value)}
+                  className="text-center"
+                  min="0"
+                />
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={() => adjustQuantity('medals', 1)}
+                  className="h-8 w-8 p-0"
+                >
+                  <Plus className="h-3 w-3" />
+                </Button>
+              </div>
+            </div>
+
+            {/* Samples */}
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-foreground">Samples ($0.01 each)</label>
+              <div className="flex items-center gap-2">
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={() => adjustQuantity('samples', -1)}
+                  className="h-8 w-8 p-0"
+                >
+                  <Minus className="h-3 w-3" />
+                </Button>
+                <Input
+                  type="number"
+                  value={samples}
+                  onChange={(e) => handleQuantityChange('samples', e.target.value)}
+                  className="text-center"
+                  min="0"
+                />
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={() => adjustQuantity('samples', 1)}
+                  className="h-8 w-8 p-0"
+                >
+                  <Plus className="h-3 w-3" />
+                </Button>
+              </div>
+            </div>
+
+            {/* Super Credits */}
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-foreground">Super Credits ($0.0055 each)</label>
+              <div className="flex items-center gap-2">
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={() => adjustQuantity('superCredits', -1)}
+                  className="h-8 w-8 p-0"
+                >
+                  <Minus className="h-3 w-3" />
+                </Button>
+                <Input
+                  type="number"
+                  value={superCredits}
+                  onChange={(e) => handleQuantityChange('superCredits', e.target.value)}
+                  className="text-center"
+                  min="0"
+                />
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={() => adjustQuantity('superCredits', 1)}
+                  className="h-8 w-8 p-0"
+                >
+                  <Plus className="h-3 w-3" />
+                </Button>
+              </div>
+            </div>
+
+            {/* Total */}
+            {totalPrice > 0 && (
+              <div className="pt-4 border-t border-border/30">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-foreground font-medium">Quote Total:</span>
+                  <span className="text-xl font-bold text-primary">${totalPrice.toFixed(2)}</span>
+                </div>
+              </div>
+            )}
           </div>
-        )}
-      </div>
+        </CollapsibleContent>
+      </Collapsible>
       
       <div className="mt-auto">
         <Button 

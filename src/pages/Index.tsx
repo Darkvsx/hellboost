@@ -3,7 +3,7 @@ import { HeroSection } from "@/components/HeroSection";
 import { PricingSection } from "@/components/PricingSection";
 import { LevelingSection } from "@/components/LevelingSection";
 import { BundlesSection } from "@/components/BundlesSection";
-import { FAQ } from "@/components/FAQ";
+
 import { Footer } from "@/components/Footer";
 import battlefieldImage from "@/assets/helldivers-battlefield.jpg";
 
@@ -26,7 +26,6 @@ const Index = () => {
         <BundlesSection />
         <PricingSection />
         <LevelingSection />
-        <FAQ />
         <Footer />
       </div>
     </div>
