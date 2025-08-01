@@ -99,7 +99,7 @@ const FAQ = () => {
           <p>Delivery times vary depending on the service:</p>
           <ul className="list-disc pl-5 space-y-1 text-sm text-foreground/80">
             <li><strong>Currency Services:</strong> 5 to 15 minutes</li>
-            <li><strong>Leveling:</strong> 12-48 hours depending on levels</li>
+            <li><strong>Leveling:</strong> 2 to 10 minutes depending on levels</li>
             <li><strong>Custom Orders:</strong> Discussed during consultation</li>
           </ul>
           <p className="text-sm text-foreground/80">
