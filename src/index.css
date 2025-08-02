@@ -2,6 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Performance optimizations */
+* {
+  box-sizing: border-box;
+}
+
+/* GPU acceleration for animations */
+.animate-fade-in-up,
+.animate-slide-in-left,
+.animate-gentle-pulse,
+.service-card,
+.info-card {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+/* Optimize font loading */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: local('Inter'), local('Inter-Regular');
+}
+
+/* Reduce paint complexity */
+img, video {
+  will-change: auto;
+}
+
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
 */
@@ -429,7 +458,7 @@ All colors MUST be HSL.
     scroll-behavior: smooth;
   }
 
-  /* Responsive Design */
+  /* Enhanced Responsive Design */
   @media (max-width: 768px) {
     .responsive-grid {
       grid-template-columns: 1fr;
@@ -437,7 +466,7 @@ All colors MUST be HSL.
     }
     
     .section-spacing {
-      padding: 4rem 0;
+      padding: 3rem 0;
     }
     
     .service-card, .info-card {
@@ -447,6 +476,21 @@ All colors MUST be HSL.
     .content-width {
       padding: 0 1rem;
     }
+    
+    /* Mobile-first button sizes */
+    .btn-primary-gradient {
+      padding: 0.875rem 1.5rem;
+      font-size: 0.875rem;
+    }
+    
+    /* Better mobile typography */
+    .heading-primary {
+      font-size: clamp(2rem, 8vw, 3rem);
+    }
+    
+    .heading-secondary {
+      font-size: clamp(1.25rem, 5vw, 1.75rem);
+    }
   }
 
   @media (max-width: 480px) {
@@ -455,7 +499,62 @@ All colors MUST be HSL.
     }
     
     .service-card, .info-card {
-      padding: 1.25rem;
+      padding: 1rem;
+    }
+    
+    .section-spacing {
+      padding: 2.5rem 0;
+    }
+    
+    .content-width {
+      padding: 0 0.75rem;
+    }
+    
+    /* Optimized for small screens */
+    .heading-primary {
+      font-size: clamp(1.75rem, 9vw, 2.5rem);
+    }
+  }
+
+  /* Touch-friendly interactions */
+  @media (hover: none) and (pointer: coarse) {
+    .service-card:hover,
+    .info-card:hover {
+      transform: none;
+      border-color: hsl(var(--primary) / 0.4);
+    }
+    
+    .btn-primary-gradient:hover {
+      transform: none;
+    }
+    
+    /* Larger touch targets */
+    button, .btn-primary-gradient {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  }
+
+  /* Accessibility improvements */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .service-card,
+    .info-card {
+      border-width: 2px;
+    }
+    
+    .btn-primary-gradient {
+      border: 2px solid hsl(var(--primary));
     }
   }
 }

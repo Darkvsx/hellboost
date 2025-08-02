@@ -1,29 +1,45 @@
 import { Button } from "@/components/ui/button";
 import { Shield, Zap, Star, ArrowDown } from "lucide-react";
-import { useEffect, useState } from "react";
+import { memo, useCallback } from "react";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+import { OptimizedImage } from "@/components/OptimizedImage";
 import skullIcon from "@/assets/skull-wings-icon.png";
 
-export const HeroSection = () => {
-  const [isVisible, setIsVisible] = useState(false);
+export const HeroSection = memo(() => {
+  const { elementRef, isVisible } = useIntersectionObserver<HTMLElement>({
+    threshold: 0.1,
+    freezeOnceVisible: true,
+  });
 
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
-
-  const scrollToSection = (sectionId: string) => {
+  const scrollToSection = useCallback((sectionId: string) => {
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({ behavior: 'smooth' });
-  };
+  }, []);
+
+  const handleOrderClick = useCallback(() => {
+    window.open('https://discord.gg/HCCyw27vm8', '_blank');
+  }, []);
+
+  const handleCommunityClick = useCallback(() => {
+    window.open('https://discord.gg/helldivers2boost', '_blank');
+  }, []);
 
   return (
-    <section id="hero" className="pt-20 md:pt-28 pb-16 min-h-screen flex items-center">
+    <section ref={elementRef} id="hero" className="pt-20 md:pt-28 pb-16 min-h-screen flex items-center">
       <div className="container mx-auto px-4 content-width">
         {/* Main Hero Content */}
         <div className={`text-center mb-16 transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           <div className="flex items-center justify-center mb-6">
-            <img src={skullIcon} alt="Helldivers Boost" className="w-16 h-16 mr-4 animate-gentle-pulse" />
+            <OptimizedImage 
+              src={skullIcon} 
+              alt="Helldivers Boost" 
+              className="w-16 h-16 mr-4 animate-gentle-pulse"
+              width={64}
+              height={64}
+              lazy={false}
+            />
             <h1 className="heading-primary">
               HELLDIVERS II
               <br />
@@ -39,7 +55,7 @@ export const HeroSection = () => {
             <Button 
               size="lg" 
               className="btn-primary text-lg px-8 py-4 hover:scale-105 transition-all duration-300"
-              onClick={() => window.open('https://discord.gg/HCCyw27vm8', '_blank')}
+              onClick={handleOrderClick}
             >
               Start Your Order
             </Button>
@@ -47,7 +63,7 @@ export const HeroSection = () => {
               variant="outline" 
               size="lg"
               className="btn-secondary text-lg px-8 py-4"
-              onClick={() => window.open('https://discord.gg/helldivers2boost', '_blank')}
+              onClick={handleCommunityClick}
             >
               Join Community
             </Button>
@@ -89,4 +105,6 @@ export const HeroSection = () => {
       </div>
     </section>
   );
-};
+});
+
+HeroSection.displayName = 'HeroSection';

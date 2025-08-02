@@ -1,10 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Ticket, Menu, X, Coins, TrendingUp, Package, HelpCircle } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, memo } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { OptimizedImage } from "@/components/OptimizedImage";
 import skullIcon from "@/assets/skull-wings-icon.png";
 
-export const Header = () => {
+export const Header = memo(() => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
@@ -15,11 +16,13 @@ export const Header = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
+    
+    // Use passive event listener for better performance
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
+  const scrollToSection = useCallback((sectionId: string) => {
     if (isHomePage) {
       const element = document.getElementById(sectionId);
       element?.scrollIntoView({ behavior: 'smooth' });
@@ -32,12 +35,24 @@ export const Header = () => {
       }, 100);
     }
     setIsMobileMenuOpen(false);
-  };
+  }, [isHomePage, navigate]);
 
-  const navigateToFAQ = () => {
+  const navigateToFAQ = useCallback(() => {
     navigate('/faq');
     setIsMobileMenuOpen(false);
-  };
+  }, [navigate]);
+
+  const toggleMobileMenu = useCallback(() => {
+    setIsMobileMenuOpen(prev => !prev);
+  }, []);
+
+  const handleDiscordClick = useCallback(() => {
+    window.open('https://discord.gg/helldivers2boost', '_blank');
+  }, []);
+
+  const handleOrderClick = useCallback(() => {
+    window.open('https://discord.gg/HCCyw27vm8', '_blank');
+  }, []);
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -53,7 +68,14 @@ export const Header = () => {
             onClick={() => scrollToSection('hero')}
           >
             <div className="relative">
-              <img src={skullIcon} alt="Helldivers Boost" className="w-8 h-8 md:w-10 md:h-10 transition-transform group-hover:scale-110 group-hover:rotate-3 duration-300" />
+              <OptimizedImage 
+                src={skullIcon} 
+                alt="Helldivers Boost" 
+                className="w-8 h-8 md:w-10 md:h-10 transition-transform group-hover:scale-110 group-hover:rotate-3 duration-300"
+                width={40}
+                height={40}
+                lazy={false}
+              />
               <div className="absolute inset-0 bg-primary/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
             <div className="relative">
@@ -106,7 +128,7 @@ export const Header = () => {
               variant="outline" 
               size="sm"
               className="group border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
-              onClick={() => window.open('https://discord.gg/helldivers2boost', '_blank')}
+              onClick={handleDiscordClick}
             >
               <MessageCircle className="w-4 h-4 mr-2 transition-transform group-hover:scale-110" />
               JOIN DISCORD
@@ -114,7 +136,7 @@ export const Header = () => {
             <Button 
               size="sm" 
               className="group bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/30"
-              onClick={() => window.open('https://discord.gg/HCCyw27vm8', '_blank')}
+              onClick={handleOrderClick}
             >
               <Ticket className="w-4 h-4 mr-2 transition-transform group-hover:scale-110" />
               ORDER NOW
@@ -124,7 +146,7 @@ export const Header = () => {
           {/* Mobile Menu Button */}
           <button
             className="md:hidden p-2 text-primary hover:bg-primary/10 rounded-lg transition-all duration-300 hover:scale-110"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            onClick={toggleMobileMenu}
           >
             <div className="relative">
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -171,7 +193,7 @@ export const Header = () => {
                   variant="outline" 
                   size="sm"
                   className="group border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 w-full"
-                  onClick={() => window.open('https://discord.gg/helldivers2boost', '_blank')}
+                  onClick={handleDiscordClick}
                 >
                   <MessageCircle className="w-4 h-4 mr-2 transition-transform group-hover:scale-110" />
                   JOIN DISCORD
@@ -179,7 +201,7 @@ export const Header = () => {
                 <Button 
                   size="sm" 
                   className="group bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground transition-all duration-300 w-full"
-                  onClick={() => window.open('https://discord.gg/HCCyw27vm8', '_blank')}
+                  onClick={handleOrderClick}
                 >
                   <Ticket className="w-4 h-4 mr-2 transition-transform group-hover:scale-110" />
                   ORDER NOW
@@ -191,4 +213,6 @@ export const Header = () => {
       </div>
     </header>
   );
-};
+});
+
+Header.displayName = 'Header';
