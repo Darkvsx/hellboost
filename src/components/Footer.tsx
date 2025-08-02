@@ -63,11 +63,11 @@ export const Footer = () => {
         {/* Stats Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
           <div className="text-center p-6 rounded-lg bg-card/30 backdrop-blur-sm border border-primary/20 hover:border-primary/40 transition-all duration-300 group">
-            <div className="text-3xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform">50,000+</div>
+            <div className="text-3xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform">100+</div>
             <div className="text-sm text-muted-foreground">Satisfied Helldivers</div>
           </div>
           <div className="text-center p-6 rounded-lg bg-card/30 backdrop-blur-sm border border-primary/20 hover:border-primary/40 transition-all duration-300 group">
-            <div className="text-3xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform">99.9%</div>
+            <div className="text-3xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform">100%</div>
             <div className="text-sm text-muted-foreground">Success Rate</div>
           </div>
           <div className="text-center p-6 rounded-lg bg-card/30 backdrop-blur-sm border border-primary/20 hover:border-primary/40 transition-all duration-300 group">
