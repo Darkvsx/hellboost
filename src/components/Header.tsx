@@ -135,8 +135,9 @@ export const Header = memo(() => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 text-primary hover:bg-primary/10 rounded-lg transition-all duration-300 hover:scale-110"
+            className="md:hidden p-3 text-primary hover:bg-primary/10 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 min-h-[44px] min-w-[44px] flex items-center justify-center"
             onClick={toggleMobileMenu}
+            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
           >
             <div className="relative">
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -145,55 +146,61 @@ export const Header = memo(() => {
         </div>
 
         {/* Mobile Menu */}
-        <div className={`md:hidden transition-all duration-300 ease-in-out ${
-          isMobileMenuOpen ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0 mt-0'
+        <div className={`md:hidden transition-all duration-500 ease-out ${
+          isMobileMenuOpen ? 'max-h-[500px] opacity-100 mt-6' : 'max-h-0 opacity-0 mt-0'
         } overflow-hidden`}>
-          <div className="p-4 bg-card/90 backdrop-blur-xl rounded-lg border border-primary/20 shadow-lg">
-            <nav className="flex flex-col space-y-4">
+          <div className="p-6 bg-card/95 backdrop-blur-xl rounded-2xl border border-primary/30 shadow-2xl shadow-primary/10">
+            <nav className="flex flex-col space-y-2">
               <button 
                 onClick={() => navigateToPage('/currency-services')}
-                className="group flex items-center gap-3 text-left text-foreground hover:text-primary transition-all duration-300 font-medium py-2 px-3 rounded-lg hover:bg-primary/5"
+                className="group flex items-center gap-4 text-left text-foreground hover:text-primary transition-all duration-300 font-medium py-4 px-4 rounded-xl hover:bg-primary/10 active:bg-primary/15 min-h-[56px]"
               >
-                <Coins className="w-4 h-4 transition-transform group-hover:scale-110" />
-                Currency Services
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                  <Coins className="w-5 h-5 transition-transform group-hover:scale-110" />
+                </div>
+                <span className="text-base">Currency Services</span>
               </button>
               <button 
                 onClick={() => navigateToPage('/leveling')}
-                className="group flex items-center gap-3 text-left text-foreground hover:text-primary transition-all duration-300 font-medium py-2 px-3 rounded-lg hover:bg-primary/5"
+                className="group flex items-center gap-4 text-left text-foreground hover:text-primary transition-all duration-300 font-medium py-4 px-4 rounded-xl hover:bg-primary/10 active:bg-primary/15 min-h-[56px]"
               >
-                <TrendingUp className="w-4 h-4 transition-transform group-hover:scale-110" />
-                Leveling
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                  <TrendingUp className="w-5 h-5 transition-transform group-hover:scale-110" />
+                </div>
+                <span className="text-base">Leveling</span>
               </button>
               <button 
                 onClick={() => navigateToPage('/bundles')}
-                className="group flex items-center gap-3 text-left text-foreground hover:text-primary transition-all duration-300 font-medium py-2 px-3 rounded-lg hover:bg-primary/5"
+                className="group flex items-center gap-4 text-left text-foreground hover:text-primary transition-all duration-300 font-medium py-4 px-4 rounded-xl hover:bg-primary/10 active:bg-primary/15 min-h-[56px]"
               >
-                <Package className="w-4 h-4 transition-transform group-hover:scale-110" />
-                Bundles
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                  <Package className="w-5 h-5 transition-transform group-hover:scale-110" />
+                </div>
+                <span className="text-base">Bundles</span>
               </button>
               <button 
                 onClick={navigateToFAQ}
-                className="group flex items-center gap-3 text-left text-foreground hover:text-primary transition-all duration-300 font-medium py-2 px-3 rounded-lg hover:bg-primary/5"
+                className="group flex items-center gap-4 text-left text-foreground hover:text-primary transition-all duration-300 font-medium py-4 px-4 rounded-xl hover:bg-primary/10 active:bg-primary/15 min-h-[56px]"
               >
-                <HelpCircle className="w-4 h-4 transition-transform group-hover:scale-110" />
-                FAQ
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                  <HelpCircle className="w-5 h-5 transition-transform group-hover:scale-110" />
+                </div>
+                <span className="text-base">FAQ</span>
               </button>
-              <div className="flex flex-col space-y-3 pt-4 border-t border-border">
+              <div className="flex flex-col space-y-3 pt-6 border-t border-border/50 mt-4">
                 <Button 
                   variant="outline" 
-                  size="sm"
-                  className="group border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 w-full"
+                  className="group border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 w-full h-12 text-base font-medium"
                   onClick={handleDiscordClick}
                 >
-                  <MessageCircle className="w-4 h-4 mr-2 transition-transform group-hover:scale-110" />
+                  <MessageCircle className="w-5 h-5 mr-3 transition-transform group-hover:scale-110" />
                   JOIN DISCORD
                 </Button>
                 <Button 
-                  size="sm" 
-                  className="group bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground transition-all duration-300 w-full"
+                  className="group bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground transition-all duration-300 w-full h-12 text-base font-medium hover:shadow-lg hover:shadow-primary/25"
                   onClick={handleOrderClick}
                 >
-                  <Ticket className="w-4 h-4 mr-2 transition-transform group-hover:scale-110" />
+                  <Ticket className="w-5 h-5 mr-3 transition-transform group-hover:scale-110" />
                   ORDER NOW
                 </Button>
               </div>
