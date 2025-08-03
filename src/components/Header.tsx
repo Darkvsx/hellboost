@@ -22,20 +22,10 @@ export const Header = memo(() => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = useCallback((sectionId: string) => {
-    if (isHomePage) {
-      const element = document.getElementById(sectionId);
-      element?.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      navigate('/', { replace: true });
-      // Wait for navigation then scroll
-      setTimeout(() => {
-        const element = document.getElementById(sectionId);
-        element?.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
-    }
+  const navigateToPage = useCallback((path: string) => {
+    navigate(path);
     setIsMobileMenuOpen(false);
-  }, [isHomePage, navigate]);
+  }, [navigate]);
 
   const navigateToFAQ = useCallback(() => {
     navigate('/faq');
@@ -65,7 +55,7 @@ export const Header = memo(() => {
           {/* Logo */}
           <div 
             className="flex items-center space-x-3 cursor-pointer group transition-all duration-300"
-            onClick={() => scrollToSection('hero')}
+            onClick={() => navigateToPage('/')}
           >
             <div className="relative">
               <OptimizedImage 
@@ -89,7 +79,7 @@ export const Header = memo(() => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <button 
-              onClick={() => scrollToSection('pricing')}
+              onClick={() => navigateToPage('/currency-services')}
               className="group flex items-center gap-2 text-foreground hover:text-primary transition-all duration-300 font-medium relative"
             >
               <Coins className="w-4 h-4 transition-transform group-hover:scale-110" />
@@ -97,7 +87,7 @@ export const Header = memo(() => {
               <div className="absolute -bottom-2 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></div>
             </button>
             <button 
-              onClick={() => scrollToSection('leveling')}
+              onClick={() => navigateToPage('/leveling')}
               className="group flex items-center gap-2 text-foreground hover:text-primary transition-all duration-300 font-medium relative"
             >
               <TrendingUp className="w-4 h-4 transition-transform group-hover:scale-110" />
@@ -105,7 +95,7 @@ export const Header = memo(() => {
               <div className="absolute -bottom-2 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></div>
             </button>
             <button 
-              onClick={() => scrollToSection('bundles')}
+              onClick={() => navigateToPage('/bundles')}
               className="group flex items-center gap-2 text-foreground hover:text-primary transition-all duration-300 font-medium relative"
             >
               <Package className="w-4 h-4 transition-transform group-hover:scale-110" />
@@ -161,21 +151,21 @@ export const Header = memo(() => {
           <div className="p-4 bg-card/90 backdrop-blur-xl rounded-lg border border-primary/20 shadow-lg">
             <nav className="flex flex-col space-y-4">
               <button 
-                onClick={() => scrollToSection('pricing')}
+                onClick={() => navigateToPage('/currency-services')}
                 className="group flex items-center gap-3 text-left text-foreground hover:text-primary transition-all duration-300 font-medium py-2 px-3 rounded-lg hover:bg-primary/5"
               >
                 <Coins className="w-4 h-4 transition-transform group-hover:scale-110" />
                 Currency Services
               </button>
               <button 
-                onClick={() => scrollToSection('leveling')}
+                onClick={() => navigateToPage('/leveling')}
                 className="group flex items-center gap-3 text-left text-foreground hover:text-primary transition-all duration-300 font-medium py-2 px-3 rounded-lg hover:bg-primary/5"
               >
                 <TrendingUp className="w-4 h-4 transition-transform group-hover:scale-110" />
                 Leveling
               </button>
               <button 
-                onClick={() => scrollToSection('bundles')}
+                onClick={() => navigateToPage('/bundles')}
                 className="group flex items-center gap-3 text-left text-foreground hover:text-primary transition-all duration-300 font-medium py-2 px-3 rounded-lg hover:bg-primary/5"
               >
                 <Package className="w-4 h-4 transition-transform group-hover:scale-110" />
