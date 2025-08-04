@@ -1,8 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Ticket, Menu, X, Coins, TrendingUp, Package, HelpCircle } from "lucide-react";
+import { MessageCircle, Ticket, Menu, X, Coins, TrendingUp, Package, HelpCircle, User, LogIn } from "lucide-react";
 import { useState, useEffect, useCallback, memo } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { OptimizedImage } from "@/components/OptimizedImage";
+import { useAuth } from "@/hooks/useAuth";
 import skullIcon from "@/assets/skull-wings-icon.png";
 
 export const Header = memo(() => {
@@ -10,6 +11,7 @@ export const Header = memo(() => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const { user, userRole } = useAuth();
   const isHomePage = location.pathname === '/';
 
   useEffect(() => {
@@ -114,6 +116,27 @@ export const Header = memo(() => {
           
           {/* Desktop Action Buttons */}
           <div className="hidden md:flex items-center space-x-3">
+            {user ? (
+              <Button 
+                variant="outline" 
+                size="sm"
+                className="group border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                onClick={() => navigateToPage(userRole === 'admin' ? '/admin-panel' : '/user-panel')}
+              >
+                <User className="w-4 h-4 mr-2 transition-transform group-hover:scale-110" />
+                {userRole === 'admin' ? 'ADMIN PANEL' : 'USER PANEL'}
+              </Button>
+            ) : (
+              <Button 
+                variant="outline" 
+                size="sm"
+                className="group border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                onClick={() => navigateToPage('/auth')}
+              >
+                <LogIn className="w-4 h-4 mr-2 transition-transform group-hover:scale-110" />
+                SIGN IN
+              </Button>
+            )}
             <Button 
               variant="outline" 
               size="sm"
