@@ -24,24 +24,24 @@ export const PricingSection = () => {
   }, []);
 
   const medalsData = [
-    { amount: "1 Medal", price: "$0.01", unitPrice: 0.01, quantity: 1 },
-    { amount: "250 Medals", price: "$2.50", unitPrice: 0.01, quantity: 250 },
-    { amount: "500 Medals", price: "$5.00", unitPrice: 0.01, quantity: 500 },
-    { amount: "1000 Medals", price: "$10.00", unitPrice: 0.01, quantity: 1000 }
+    { amount: "1 Medal", price: "$0.01" },
+    { amount: "250 Medals", price: "$2.50" },
+    { amount: "500 Medals", price: "$5.00" },
+    { amount: "1000 Medals", price: "$10.00" }
   ];
 
   const samplesData = [
-    { amount: "1 Sample", price: "$0.01", unitPrice: 0.01, quantity: 1 },
-    { amount: "100 Samples", price: "$1.00", unitPrice: 0.01, quantity: 100 },
-    { amount: "200 Samples", price: "$2.00", unitPrice: 0.01, quantity: 200 },
-    { amount: "300 Samples", price: "$3.00", unitPrice: 0.01, quantity: 300 }
+    { amount: "1 Sample", price: "$0.01" },
+    { amount: "100 Samples", price: "$1.00" },
+    { amount: "200 Samples", price: "$2.00" },
+    { amount: "300 Samples", price: "$3.00" }
   ];
 
   const superCreditsData = [
-    { amount: "1 SC", price: "$0.0055", unitPrice: 0.0055, quantity: 1 },
-    { amount: "500 SC", price: "$2.50", unitPrice: 0.005, quantity: 500 },
-    { amount: "1000 SC", price: "$5.00", unitPrice: 0.005, quantity: 1000 },
-    { amount: "2000 SC", price: "$10.00", unitPrice: 0.005, quantity: 2000 }
+    { amount: "1 SC", price: "$0.0055" },
+    { amount: "500 SC", price: "$2.50" },
+    { amount: "1000 SC", price: "$5.00" },
+    { amount: "2000 SC", price: "$10.00" }
   ];
 
   return (
@@ -71,12 +71,11 @@ export const PricingSection = () => {
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           <div className="responsive-grid mb-8">
-            <ServiceCard title="MEDALS" items={medalsData} itemType="medals" />
-            <ServiceCard title="SAMPLES" items={samplesData} itemType="samples" />
+            <ServiceCard title="MEDALS" items={medalsData} />
+            <ServiceCard title="SAMPLES" items={samplesData} />
             <ServiceCard 
               title="SUPER CREDITS" 
               items={superCreditsData} 
-              itemType="superCredits"
               note="Extra SC given free"
             />
           </div>
