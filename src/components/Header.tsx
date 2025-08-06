@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback, memo } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { OptimizedImage } from "@/components/OptimizedImage";
 import { useAuth } from "@/hooks/useAuth";
+import CartIcon from "@/components/CartIcon";
 import skullIcon from "@/assets/skull-wings-icon.png";
 
 export const Header = memo(() => {
@@ -116,6 +117,7 @@ export const Header = memo(() => {
           
           {/* Desktop Action Buttons */}
           <div className="hidden md:flex items-center space-x-3">
+            {user && <CartIcon />}
             {user ? (
               <Button 
                 variant="outline" 
