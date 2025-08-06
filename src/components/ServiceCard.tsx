@@ -1,20 +1,14 @@
-import { Medal, Atom, Coins, Package, LucideIcon, ShoppingCart } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useCart } from "@/hooks/useCart";
-import { useAuth } from "@/hooks/useAuth";
+import { Medal, Atom, Coins, Package, LucideIcon } from "lucide-react";
 
 interface ServiceItem {
   amount: string;
   price: string;
-  unitPrice: number;
-  quantity: number;
 }
 
 interface ServiceCardProps {
   title: string;
   items: ServiceItem[];
   note?: string;
-  itemType: 'medals' | 'samples' | 'superCredits';
 }
 
 const getIconForTitle = (title: string): LucideIcon => {
@@ -25,23 +19,8 @@ const getIconForTitle = (title: string): LucideIcon => {
   return Package;
 };
 
-export const ServiceCard = ({ title, items, note, itemType }: ServiceCardProps) => {
+export const ServiceCard = ({ title, items, note }: ServiceCardProps) => {
   const IconComponent = getIconForTitle(title);
-  const { addToCart, loading } = useCart();
-  const { user } = useAuth();
-  
-  const handleAddToCart = async (item: ServiceItem) => {
-    if (!user) {
-      window.open('/auth', '_blank');
-      return;
-    }
-
-    await addToCart({
-      item_type: itemType,
-      quantity: item.quantity,
-      unit_price: item.unitPrice
-    });
-  };
   
   return (
     <div className="service-card">
@@ -56,23 +35,9 @@ export const ServiceCard = ({ title, items, note, itemType }: ServiceCardProps) 
       
       <div className="space-y-4 mb-8">
         {items.map((item, index) => (
-          <div key={index} className="service-item group">
-            <div className="flex items-center justify-between w-full">
-              <div className="flex flex-col">
-                <span className="text-foreground font-medium text-sm">{item.amount}</span>
-                <span className="service-price text-lg">{item.price}</span>
-              </div>
-              <Button
-                size="sm"
-                variant="outline"
-                onClick={() => handleAddToCart(item)}
-                disabled={loading}
-                className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 ml-2"
-              >
-                <ShoppingCart className="w-3 h-3 mr-1" />
-                {loading ? '...' : 'Add'}
-              </Button>
-            </div>
+          <div key={index} className="service-item">
+            <span className="text-foreground font-medium text-sm">{item.amount}</span>
+            <span className="service-price text-lg">{item.price}</span>
           </div>
         ))}
       </div>

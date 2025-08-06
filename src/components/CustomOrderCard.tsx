@@ -2,17 +2,13 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { Settings, Star, Calculator, Plus, Minus, ChevronDown, ShoppingCart } from "lucide-react";
-import { useCart } from "@/hooks/useCart";
-import { useAuth } from "@/hooks/useAuth";
+import { Settings, Star, Calculator, Plus, Minus, ChevronDown } from "lucide-react";
 
 export const CustomOrderCard = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [medals, setMedals] = useState(0);
   const [samples, setSamples] = useState(0);
   const [superCredits, setSuperCredits] = useState(0);
-  const { addToCart, loading } = useCart();
-  const { user } = useAuth();
 
   // Individual prices
   const medalPrice = 0.01;
@@ -48,40 +44,6 @@ export const CustomOrderCard = () => {
         setSuperCredits(prev => Math.max(0, prev + adjustment));
         break;
     }
-  };
-
-  const handleAddToCart = async () => {
-    if (!user) {
-      window.open('/auth', '_blank');
-      return;
-    }
-
-    if (medals > 0) {
-      await addToCart({
-        item_type: 'medals',
-        quantity: medals,
-        unit_price: medalPrice
-      });
-    }
-    if (samples > 0) {
-      await addToCart({
-        item_type: 'samples',
-        quantity: samples,
-        unit_price: samplePrice
-      });
-    }
-    if (superCredits > 0) {
-      await addToCart({
-        item_type: 'superCredits',
-        quantity: superCredits,
-        unit_price: superCreditPrice
-      });
-    }
-
-    // Reset form
-    setMedals(0);
-    setSamples(0);
-    setSuperCredits(0);
   };
 
 
@@ -212,24 +174,13 @@ export const CustomOrderCard = () => {
         </CollapsibleContent>
       </Collapsible>
       
-      <div className="mt-auto space-y-3">
-        {totalPrice > 0 && (
-          <Button 
-            className="btn-primary-gradient w-full group"
-            onClick={handleAddToCart}
-            disabled={loading}
-          >
-            <ShoppingCart className="w-4 h-4 mr-2 transition-transform group-hover:scale-110" />
-            {loading ? 'ADDING...' : `ADD TO CART ($${totalPrice.toFixed(2)})`}
-          </Button>
-        )}
+      <div className="mt-auto">
         <Button 
-          variant="outline"
-          className="w-full group"
+          className="btn-primary-gradient w-full group"
           onClick={() => window.open('https://discord.gg/HCCyw27vm8', '_blank')}
         >
           <Star className="w-4 h-4 mr-2 transition-transform group-hover:rotate-12" />
-          NEED HELP? CONTACT US
+          {totalPrice > 0 ? `ORDER QUOTE ($${totalPrice.toFixed(2)})` : 'OPEN A TICKET'}
         </Button>
       </div>
     </div>
