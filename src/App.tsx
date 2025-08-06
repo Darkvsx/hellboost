@@ -22,20 +22,18 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/currency-services" element={<CurrencyServices />} />
-            <Route path="/bundles" element={<Bundles />} />
-            <Route path="/leveling" element={<Leveling />} />
-            <Route path="/faq" element={<FAQ />} />
-            <Route path="/auth" element={<Auth />} />
-            <Route path="/user-panel" element={<UserPanel />} />
-            <Route path="/admin-panel" element={<AdminPanel />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/currency-services" element={<CurrencyServices />} />
+          <Route path="/bundles" element={<Bundles />} />
+          <Route path="/leveling" element={<Leveling />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/user-panel" element={<UserPanel />} />
+          <Route path="/admin-panel" element={<AdminPanel />} />
+          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </TooltipProvider>
     </AuthProvider>
   </QueryClientProvider>
